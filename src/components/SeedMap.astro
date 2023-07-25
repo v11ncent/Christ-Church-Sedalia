@@ -1,0 +1,55 @@
+---
+import "mapbox-gl/dist/mapbox-gl.css";
+---
+
+<div class="map-container">
+  <div id="map"></div>
+  <div id="static"></div>
+</div>
+
+<script>
+  import mapboxgl from "mapbox-gl";
+
+  mapboxgl.accessToken =
+    "pk.eyJ1IjoidmluY2V3ZWJkZXNpZ25zIiwiYSI6ImNsa2RkY2dxdTB2eGIzcmpzbG41djhwNnIifQ.BRtSUEbjeJw4L8h5PUZgyg";
+
+  const map = new mapboxgl.Map({
+    container: "map", // container ID
+    style:
+      "mapbox://styles/vincewebdesigns/clkddfizn007601qk6r3y3cfm?optimize=true", // style URL
+    center: [-74.5, 40], // starting position [lng, lat]
+    zoom: 3, // starting zoom
+  });
+
+  map.on("load", () => {
+    const map = document.getElementById("map");
+
+    if (map) {
+      map.style.visibility = "visible";
+    }
+  });
+</script>
+
+<style>
+  .map-container {
+    display: grid;
+    height: 500px;
+  }
+
+  #map {
+    width: 100%;
+    height: 100%;
+    grid-column: 1;
+    grid-row: 1;
+    visibility: hidden;
+  }
+
+  #static {
+    width: 100%;
+    height: 100%;
+    grid-column: 1;
+    grid-row: 1;
+    background: center / cover no-repeat
+      url("https://api.mapbox.com/styles/v1/mapbox/light-v11/static/-97.952,39.3426,3.33,0/300x200@2x?access_token=pk.eyJ1IjoidmluY2V3ZWJkZXNpZ25zIiwiYSI6ImNsa2RkY2dxdTB2eGIzcmpzbG41djhwNnIifQ.BRtSUEbjeJw4L8h5PUZgyg");
+  }
+</style>

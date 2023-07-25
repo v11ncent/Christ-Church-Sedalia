@@ -1,0 +1,21 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title="Christ Church Sedalia"
+      description="Christ Church Sedalia is a church located in Sedalia, MO."
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
