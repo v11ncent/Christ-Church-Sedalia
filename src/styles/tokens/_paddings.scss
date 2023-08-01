@@ -1,2 +1,4 @@
-$inline: 1rem;
-$block: 1rem;
+$inline: clamp(1rem, 3vw, 5rem);
+$block: clamp(5rem, 10vw, 10rem);
+
+$section: $block $inline;

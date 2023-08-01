@@ -1,0 +1,18 @@
+---
+export interface Props {
+  id?: string;
+}
+const { id } = Astro.props;
+---
+
+<section id={id}>
+  <slot />
+</section>
+
+<style lang="scss">
+  @use "../styles/tokens/tokens" as t;
+
+  section {
+    padding: t.$pd-section;
+  }
+</style>

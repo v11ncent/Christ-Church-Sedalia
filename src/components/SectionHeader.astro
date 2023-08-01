@@ -1,0 +1,12 @@
+<header class="section-header">
+  <slot />
+</header>
+
+<style lang="scss">
+  @use "../styles/tokens/tokens" as t;
+
+  header {
+    font-size: t.$fs-heading;
+    font-family: t.$ff-heading;
+  }
+</style>
