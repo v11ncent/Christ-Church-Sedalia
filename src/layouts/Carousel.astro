@@ -1,46 +1,49 @@
-<div class="swiper-container">
+<astro-carousel>
   <div class="swiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide">Slide 1</div>
       <div class="swiper-slide">Slide 2</div>
       <div class="swiper-slide">Slide 3</div>
     </div>
-    <div class="swiper-pagination"></div>
   </div>
   <div class="navigation-buttons">
-    <button class="swiper-previous"> </button>
-    <button class="swiper-next"></button>
+    <button class="previous-button"> </button>
+    <button class="next-button"></button>
   </div>
-</div>
+</astro-carousel>
 
 <script>
   import Swiper from "swiper";
-  import { Navigation, Pagination } from "swiper/modules";
+  import { Navigation } from "swiper/modules";
   import "swiper/css";
-  import "swiper/css/pagination";
 
-  const swiper = new Swiper(".swiper", {
-    modules: [Navigation, Pagination],
-    slidesPerView: 1.5,
-    spaceBetween: "32",
+  class AstroCarousel extends HTMLElement {
+    constructor() {
+      super();
 
-    pagination: {
-      el: ".swiper-pagination",
-    },
+      const swiper = new Swiper(".swiper", {
+        modules: [Navigation],
+        slidesPerView: 1.5,
+        spaceBetween: "32",
 
-    navigation: {
-      nextEl: ".swiper-next",
-      prevEl: ".swiper-previous",
-    },
-  });
+        navigation: {
+          nextEl: ".next-button",
+          prevEl: ".previous-button",
+        },
+      });
+    }
+  }
+
+  customElements.define("astro-carousel", AstroCarousel);
 </script>
 
 <style lang="scss">
   @use "../styles/tokens/tokens" as t;
 
-  .swiper-container {
+  astro-carousel {
     display: flex;
     flex-direction: column;
+    margin-top: 4rem;
   }
 
   .swiper {
@@ -53,25 +56,22 @@
   }
 
   button {
+    width: 1.875rem;
+    height: 1.875rem;
+    border-radius: 100%;
     border: transparent;
     background-color: transparent;
   }
 
-  .swiper-previous {
-    border: 0.0625rem solid t.$clr-green;
-    width: 1.875rem;
-    height: 1.875rem;
-    border-radius: 100%;
-    margin-right: 0.25rem;
-    background: center / 50% no-repeat url("../assets/arrow-previous.svg");
-  }
-
-  .swiper-next {
-    width: 1.875rem;
-    height: 1.875rem;
-    border-radius: 100%;
+  .next-button {
     background: center / 50% no-repeat url("../assets/arrow-next.svg")
       t.$clr-green;
+  }
+
+  .previous-button {
+    margin-right: 0.25rem;
+    border: 0.0625rem solid t.$clr-green;
+    background: center / 50% no-repeat url("../assets/arrow-previous.svg");
   }
 
   .swiper-slide {
