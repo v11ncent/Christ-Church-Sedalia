@@ -7,6 +7,7 @@ import SectionHeader from "../components/SectionHeader.astro";
 import ScrollingBanner from "../components/ScrollingBanner.astro";
 import Link from "../components/Link.astro";
 import missionImageOne from "../assets/our-mission-1.png";
+import Carousel from "../layouts/Carousel.astro";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -60,6 +61,22 @@ import missionImageOne from "../assets/our-mission-1.png";
       <div class="image-container">
         <Image src={missionImageOne} alt="" />
       </div>
+    </Section>
+    <Section variant="paper" id="media-hub">
+      <SectionHeader variant="inverted">
+        <h2>Media Hub</h2>
+      </SectionHeader>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla
+        eget massa sagittis ultricies ut at purus. Mauris iaculis cursus turpis,
+        eu cursus nulla eleifend sed. Praesent quis ligula ut sapien molestie
+        eleifend et quis mi.
+      </p>
+      <div class="links">
+        <Link variant="tertiary" to="/" text="View all videos" />
+        <Link variant="no-decoration" to="/" text="Our Facebook page" />
+      </div>
+      <Carousel />
     </Section>
   </main>
 </Layout>
@@ -135,6 +152,16 @@ import missionImageOne from "../assets/our-mission-1.png";
       object-fit: cover;
       border-radius: t.$br-large;
       border: 0.25rem solid t.$clr-tan;
+    }
+  }
+
+  :global(section#media-hub) {
+    p {
+      color: t.$clr-grey;
+
+      &:last-of-type {
+        margin-bottom: 1.5rem;
+      }
     }
   }
 </style>

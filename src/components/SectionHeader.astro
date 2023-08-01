@@ -1,16 +1,35 @@
 ---
-import cross from "../assets/cross-decoration.svg";
+export interface Props {
+  variant?: "inverted";
+}
+
+const { variant = "" } = Astro.props;
 ---
 
-<header class="section-header">
-  <slot />
-</header>
+{
+  () => {
+    if (variant === "inverted") {
+      return (
+        <header class="section-header inverted">
+          <slot />
+        </header>
+      );
+    } else {
+      return (
+        <header class="section-header">
+          <slot />
+        </header>
+      );
+    }
+  }
+}
 
 <style lang="scss">
   @use "../styles/tokens/tokens" as t;
 
   header {
     position: relative;
+    z-index: 2;
     max-width: fit-content;
     margin-bottom: 1.5rem;
     font-size: t.$fs-heading;
@@ -19,7 +38,7 @@ import cross from "../assets/cross-decoration.svg";
     &::after {
       position: absolute;
       content: "";
-      z-index: -1;
+      z-index: 1;
       top: 50%;
       right: 0;
       transform: translate(75%, -50%);
@@ -27,6 +46,20 @@ import cross from "../assets/cross-decoration.svg";
       height: 3rem;
       background: center / 40% no-repeat url("../assets/cross-decoration.svg")
         t.$clr-tan;
+      border-radius: 100%;
+    }
+
+    &.inverted::after {
+      position: absolute;
+      content: "";
+      z-index: -1;
+      top: 50%;
+      right: 0;
+      transform: translate(75%, -50%);
+      width: 3rem;
+      height: 3rem;
+      background: center / 40% no-repeat
+        url("../assets/cross-decoration-inverted.svg") white;
       border-radius: 100%;
     }
   }

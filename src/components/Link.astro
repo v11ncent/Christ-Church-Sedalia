@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  variant: "primary" | "secondary" | "tertiary";
+  variant: "primary" | "secondary" | "tertiary" | "no-decoration";
   text: string;
   to: string;
   external?: boolean;
@@ -27,6 +27,12 @@ const externalProps = external ? { target: "_blank", rel: "noopener" } : {};
     } else if (variant === "tertiary") {
       return (
         <a href={to} class="tertiary link" {...externalProps}>
+          {text}
+        </a>
+      );
+    } else if (variant === "no-decoration") {
+      return (
+        <a href={to} class="no-decoration link" {...externalProps}>
           {text}
         </a>
       );
@@ -61,5 +67,9 @@ const externalProps = external ? { target: "_blank", rel: "noopener" } : {};
   .tertiary {
     color: t.$clr-black;
     border: 1.5px solid t.$clr-black;
+  }
+
+  .no-decoration {
+    color: t.$clr-black;
   }
 </style>
