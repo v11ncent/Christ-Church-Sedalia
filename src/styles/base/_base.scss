@@ -1,7 +1,18 @@
 @use "../tokens/tokens" as t;
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
 p {
   font-family: t.$ff-poppy;
+  line-height: 1.5;
 }
 
 .sr-only {

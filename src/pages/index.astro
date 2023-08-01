@@ -1,10 +1,12 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/BaseLayout.astro";
 import MaxWidthContainer from "../components/MaxWidthContainer.astro";
 import Section from "../layouts/Section.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import ScrollingBanner from "../components/ScrollingBanner.astro";
 import Link from "../components/Link.astro";
+import missionImageOne from "../assets/our-mission-1.png";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -31,9 +33,33 @@ import Link from "../components/Link.astro";
       />
     </section>
     <Section id="our-mission">
-      <SectionHeader>
-        <h2>Mission In Christ</h2>
-      </SectionHeader>
+      <div class="text-container">
+        <SectionHeader>
+          <h2>Mission In Christ</h2>
+        </SectionHeader>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla
+          eget massa sagittis ultricies ut at purus. Mauris iaculis cursus
+          turpis, eu cursus nulla eleifend sed. Praesent quis ligula ut sapien
+          molestie eleifend et quis mi.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla
+          eget massa sagittis ultricies ut at purus. Mauris iaculis cursus
+          turpis, eu cursus nulla eleifend sed. Praesent quis ligula ut sapien
+          molestie eleifend et quis mi.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla
+          eget massa sagittis ultricies ut at purus. Mauris iaculis cursus
+          turpis, eu cursus nulla eleifend sed. Praesent quis ligula ut sapien
+          molestie eleifend et quis mi.
+        </p>
+        <Link variant="tertiary" to="/" text="Read more about us" />
+      </div>
+      <div class="image-container">
+        <Image src={missionImageOne} alt="" />
+      </div>
     </Section>
   </main>
 </Layout>
@@ -79,6 +105,36 @@ import Link from "../components/Link.astro";
       :global(.link) {
         width: 100%;
       }
+    }
+  }
+
+  :global(section#our-mission) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    p {
+      color: t.$clr-grey;
+
+      &:not(:last-of-type) {
+        margin-bottom: 0.75rem;
+      }
+
+      &:last-of-type {
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    .image-container {
+      min-height: 20.625rem;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: t.$br-large;
+      border: 0.25rem solid t.$clr-tan;
     }
   }
 </style>

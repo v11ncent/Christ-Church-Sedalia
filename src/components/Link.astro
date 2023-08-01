@@ -1,12 +1,12 @@
 ---
 export interface Props {
-  variant: "primary" | "secondary";
+  variant: "primary" | "secondary" | "tertiary";
   text: string;
   to: string;
   external?: boolean;
 }
 
-const { variant, text, to, external = false } = Astro.props;
+const { variant, to, text, external = false } = Astro.props;
 const externalProps = external ? { target: "_blank", rel: "noopener" } : {};
 ---
 
@@ -21,6 +21,12 @@ const externalProps = external ? { target: "_blank", rel: "noopener" } : {};
     } else if (variant === "secondary") {
       return (
         <a href={to} class="secondary link" {...externalProps}>
+          {text}
+        </a>
+      );
+    } else if (variant === "tertiary") {
+      return (
+        <a href={to} class="tertiary link" {...externalProps}>
           {text}
         </a>
       );
@@ -50,5 +56,10 @@ const externalProps = external ? { target: "_blank", rel: "noopener" } : {};
   .secondary {
     color: white;
     border: 1.5px solid white;
+  }
+
+  .tertiary {
+    color: t.$clr-black;
+    border: 1.5px solid t.$clr-black;
   }
 </style>
