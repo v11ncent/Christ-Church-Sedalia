@@ -1,0 +1,50 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<article>
+  <div class="image-container"></div>
+  <div class="text-container">
+    <header>
+      <h3 class="heading">{title}</h3>
+    </header>
+    <p>{description}</p>
+  </div>
+</article>
+
+<style lang="scss">
+  @use "../styles/tokens/tokens" as t;
+
+  article {
+    min-width: 100%;
+  }
+
+  .image-container {
+    min-height: 12rem;
+    margin-bottom: 2rem;
+    border-radius: t.$br-small t.$br-large t.$br-small t.$br-large;
+    background-color: darkgrey;
+  }
+
+  header {
+    margin-bottom: 0.75rem;
+
+    .heading {
+      font-size: 1.25rem;
+      font-family: t.$ff-yeseva;
+      color: t.$clr-black;
+    }
+  }
+
+  p {
+    font-weight: 300;
+    font-family: t.$ff-poppy;
+    color: t.$clr-grey;
+    font-size: 0.875rem;
+  }
+</style>

@@ -1,46 +1,52 @@
-<astro-carousel>
+---
+import CarouselItem from "../components/CarouselItem.astro";
+
+interface Props {
+  items: { title: string; description: string }[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="carousel">
   <div class="swiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide">Slide 1</div>
-      <div class="swiper-slide">Slide 2</div>
-      <div class="swiper-slide">Slide 3</div>
+      {
+        items.map((item) => (
+          <div class="swiper-slide">
+            <CarouselItem title={item.title} description={item.description} />
+          </div>
+        ))
+      }
     </div>
   </div>
   <div class="navigation-buttons">
-    <button class="previous-button"> </button>
+    <button class="previous-button"></button>
     <button class="next-button"></button>
   </div>
-</astro-carousel>
+</div>
 
 <script>
   import Swiper from "swiper";
   import { Navigation } from "swiper/modules";
   import "swiper/css";
 
-  class AstroCarousel extends HTMLElement {
-    constructor() {
-      super();
+  const swiper = new Swiper(".swiper", {
+    modules: [Navigation],
+    slidesPerView: 1.25,
+    spaceBetween: "16",
 
-      const swiper = new Swiper(".swiper", {
-        modules: [Navigation],
-        slidesPerView: 1.5,
-        spaceBetween: "32",
-
-        navigation: {
-          nextEl: ".next-button",
-          prevEl: ".previous-button",
-        },
-      });
-    }
-  }
-
-  customElements.define("astro-carousel", AstroCarousel);
+    navigation: {
+      nextEl: ".next-button",
+      prevEl: ".previous-button",
+    },
+  });
 </script>
 
 <style lang="scss">
   @use "../styles/tokens/tokens" as t;
 
-  astro-carousel {
+  .carousel {
     display: flex;
     flex-direction: column;
     margin-top: 4rem;
@@ -48,38 +54,30 @@
 
   .swiper {
     width: 100%;
-    height: 50vh;
+    min-height: fit-content;
   }
 
   .navigation-buttons {
     margin-top: 2rem;
-  }
 
-  button {
-    width: 1.875rem;
-    height: 1.875rem;
-    border-radius: 100%;
-    border: transparent;
-    background-color: transparent;
-  }
+    button {
+      width: 1.875rem;
+      height: 1.875rem;
+      border-radius: 100%;
+      border: transparent;
+      background-color: transparent;
+      cursor: pointer;
+    }
 
-  .next-button {
-    background: center / 50% no-repeat url("../assets/arrow-next.svg")
-      t.$clr-green;
-  }
+    .next-button {
+      background: center / 50% no-repeat url("../assets/arrow-next.svg")
+        t.$clr-green;
+    }
 
-  .previous-button {
-    margin-right: 0.25rem;
-    border: 0.0625rem solid t.$clr-green;
-    background: center / 50% no-repeat url("../assets/arrow-previous.svg");
-  }
-
-  .swiper-slide {
-    text-align: center;
-    font-size: 1.125rem;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .previous-button {
+      margin-right: 0.25rem;
+      border: 0.0625rem solid t.$clr-green;
+      background: center / 50% no-repeat url("../assets/arrow-previous.svg");
+    }
   }
 </style>

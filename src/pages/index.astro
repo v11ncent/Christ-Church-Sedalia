@@ -8,6 +8,24 @@ import ScrollingBanner from "../components/ScrollingBanner.astro";
 import Link from "../components/Link.astro";
 import missionImageOne from "../assets/our-mission-1.png";
 import Carousel from "../layouts/Carousel.astro";
+
+const carouselItems = [
+  {
+    title: "Video",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla eget massa sagittis ultricies",
+  },
+  {
+    title: "Video",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla eget massa sagittis ultricies",
+  },
+  {
+    title: "Video",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla eget massa sagittis ultricies",
+  },
+];
 ---
 
 <Layout title="Welcome to Astro.">
@@ -76,7 +94,7 @@ import Carousel from "../layouts/Carousel.astro";
         <Link variant="tertiary" to="/" text="View all videos" />
         <Link variant="no-decoration" to="/" text="Our Facebook page" />
       </div>
-      <Carousel />
+      <Carousel items={carouselItems} />
     </Section>
   </main>
 </Layout>
