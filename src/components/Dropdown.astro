@@ -19,7 +19,7 @@ const openValue = open ? "" : null;
   <details open={openValue}>
     <summary>
       {summary}
-      <button></button>
+      <div class="button"></div>
     </summary>
     <p>{content}</p>
   </details>
@@ -31,17 +31,16 @@ const openValue = open ? "" : null;
       super();
 
       const details = this.querySelector("details");
-      const button = this.querySelector("button");
+      const button = this.querySelector(".button") as HTMLElement;
 
-      if (!button) return;
+      if (!button || !details) return;
 
-      if (details?.getAttribute("open") === "") {
+      if (details.getAttribute("open") === "") {
         button.style.transform = "rotate(-45deg)";
       }
 
-      details?.addEventListener("click", (event) => {
+      details.addEventListener("click", (event) => {
         const open = details.getAttribute("open");
-        console.log(open, "aaaa");
 
         if (open === "") {
           button.style.transform = "rotate(0deg)";
@@ -63,6 +62,7 @@ const openValue = open ? "" : null;
     border-radius: t.$br-main;
     filter: drop-shadow(0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25));
     background-color: white;
+    cursor: pointer;
   }
 
   summary {
@@ -84,13 +84,14 @@ const openValue = open ? "" : null;
     }
   }
 
-  button {
+  div.button {
     width: 1.125rem;
     height: 1.125rem;
     border: transparent;
     background-color: transparent;
     background: center / cover no-repeat url("../assets/plus.svg");
     transition: transform 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    cursor: pointer;
   }
 
   p {
