@@ -8,6 +8,7 @@ import ScrollingBanner from "../components/ScrollingBanner.astro";
 import Link from "../components/Link.astro";
 import missionImageOne from "../assets/our-mission-1.png";
 import Carousel from "../layouts/Carousel.astro";
+import Dropdown from "../components/Dropdown.astro";
 
 const carouselItems = [
   {
@@ -52,33 +53,37 @@ const carouselItems = [
       />
     </section>
     <Section id="our-mission">
-      <div class="text-container">
-        <SectionHeader>
-          <h2>Mission In Christ</h2>
-        </SectionHeader>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla
-          eget massa sagittis ultricies ut at purus. Mauris iaculis cursus
-          turpis, eu cursus nulla eleifend sed. Praesent quis ligula ut sapien
-          molestie eleifend et quis mi.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla
-          eget massa sagittis ultricies ut at purus. Mauris iaculis cursus
-          turpis, eu cursus nulla eleifend sed. Praesent quis ligula ut sapien
-          molestie eleifend et quis mi.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla
-          eget massa sagittis ultricies ut at purus. Mauris iaculis cursus
-          turpis, eu cursus nulla eleifend sed. Praesent quis ligula ut sapien
-          molestie eleifend et quis mi.
-        </p>
-        <Link variant="tertiary" to="/" text="Read more about us" />
-      </div>
-      <div class="image-container">
-        <Image src={missionImageOne} alt="" />
-      </div>
+      <MaxWidthContainer>
+        <div class="container">
+          <div class="text-container">
+            <SectionHeader>
+              <h2>Mission In Christ</h2>
+            </SectionHeader>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
+              nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
+              cursus turpis, eu cursus nulla eleifend sed. Praesent quis ligula
+              ut sapien molestie eleifend et quis mi.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
+              nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
+              cursus turpis, eu cursus nulla eleifend sed. Praesent quis ligula
+              ut sapien molestie eleifend et quis mi.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
+              nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
+              cursus turpis, eu cursus nulla eleifend sed. Praesent quis ligula
+              ut sapien molestie eleifend et quis mi.
+            </p>
+            <Link variant="tertiary" to="/" text="Read more about us" />
+          </div>
+          <div class="image-container">
+            <Image src={missionImageOne} alt="" />
+          </div>
+        </div>
+      </MaxWidthContainer>
     </Section>
     <Section variant="paper" id="media-hub">
       <SectionHeader variant="inverted">
@@ -95,6 +100,52 @@ const carouselItems = [
         <Link variant="no-decoration" to="/" text="Our Facebook page" />
       </div>
       <Carousel items={carouselItems} />
+    </Section>
+    <Section id="bible-study">
+      <div class="container">
+        <div class="text-container">
+          <SectionHeader>
+            <h2>Bible Studies</h2>
+          </SectionHeader>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
+            nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
+            cursus turpis, eu cursus nulla eleifend sed.
+          </p>
+          <Link
+            variant="tertiary"
+            to="/bible-study"
+            text="All of our bible studies"
+          />
+        </div>
+        <div class="dropdown-container">
+          <Dropdown
+            open="true"
+            summary="Child Bible Studies"
+            content={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
+                      nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
+                      cursus turpis, eu cursus nulla eleifend sed. Lorem ipsum dolor sit
+                      amet, consectetur adipiscing elit. Fusce a nulla eget massa
+                      sagittis ultricies ut at purus. Mauris iaculis.`}
+          />
+          <Dropdown
+            summary="Teen Bible Studies"
+            content={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
+                      nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
+                      cursus turpis, eu cursus nulla eleifend sed. Lorem ipsum dolor sit
+                      amet, consectetur adipiscing elit. Fusce a nulla eget massa
+                      sagittis ultricies ut at purus. Mauris iaculis.`}
+          />
+          <Dropdown
+            summary="Adult Bible Studies"
+            content={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
+                      nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
+                      cursus turpis, eu cursus nulla eleifend sed. Lorem ipsum dolor sit
+                      amet, consectetur adipiscing elit. Fusce a nulla eget massa
+                      sagittis ultricies ut at purus. Mauris iaculis.`}
+          />
+        </div>
+      </div>
     </Section>
   </main>
 </Layout>
@@ -144,9 +195,11 @@ const carouselItems = [
   }
 
   :global(section#our-mission) {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+    }
 
     p {
       color: t.$clr-grey;
@@ -180,6 +233,30 @@ const carouselItems = [
       &:last-of-type {
         margin-bottom: 1.5rem;
       }
+    }
+  }
+
+  :global(section#bible-study) {
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+
+      p {
+        color: t.$clr-grey;
+      }
+    }
+
+    .text-container {
+      p {
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    .dropdown-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
     }
   }
 </style>

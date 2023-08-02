@@ -1,0 +1,100 @@
+---
+interface Props {
+  open?: boolean;
+  summary: string;
+  content: string;
+}
+
+/* 
+  Default details implementation
+  If it's open then open=""
+  If it's closed then open=null
+*/
+
+const { open = null, summary, content } = Astro.props;
+const openValue = open ? "" : null;
+---
+
+<astro-details>
+  <details open={openValue}>
+    <summary>
+      {summary}
+      <button></button>
+    </summary>
+    <p>{content}</p>
+  </details>
+</astro-details>
+
+<script>
+  class AstroDetails extends HTMLElement {
+    constructor() {
+      super();
+
+      const details = this.querySelector("details");
+      const button = this.querySelector("button");
+
+      if (!button) return;
+
+      if (details?.getAttribute("open") === "") {
+        button.style.transform = "rotate(-45deg)";
+      }
+
+      details?.addEventListener("click", (event) => {
+        const open = details.getAttribute("open");
+        console.log(open, "aaaa");
+
+        if (open === "") {
+          button.style.transform = "rotate(0deg)";
+        } else {
+          button.style.transform = "rotate(-45deg)";
+        }
+      });
+    }
+  }
+
+  customElements.define("astro-details", AstroDetails);
+</script>
+
+<style lang="scss">
+  @use "../styles/tokens/tokens" as t;
+
+  astro-details {
+    width: 100%;
+    border-radius: t.$br-main;
+    filter: drop-shadow(0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25));
+    background-color: white;
+  }
+
+  summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 400;
+    font-family: t.$ff-poppy;
+    letter-spacing: 0.75px;
+    color: white;
+    background-color: t.$clr-green;
+    border-radius: t.$br-main;
+    box-shadow: 0rem 0.25rem 0.75rem 0rem #f1f1ec;
+
+    &::marker {
+      content: none;
+    }
+  }
+
+  button {
+    width: 1.125rem;
+    height: 1.125rem;
+    border: transparent;
+    background-color: transparent;
+    background: center / cover no-repeat url("../assets/plus.svg");
+    transition: transform 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  }
+
+  p {
+    padding: 1.5rem;
+    color: t.$clr-grey;
+  }
+</style>
