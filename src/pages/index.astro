@@ -9,6 +9,7 @@ import Link from "../components/Link.astro";
 import missionImageOne from "../assets/our-mission-1.png";
 import Carousel from "../layouts/Carousel.astro";
 import Dropdown from "../components/Dropdown.astro";
+import Event from "../components/Event.astro";
 
 const carouselItems = [
   {
@@ -120,7 +121,7 @@ const carouselItems = [
         </div>
         <div class="dropdown-container">
           <Dropdown
-            open="true"
+            open={true}
             summary="Child Bible Studies"
             content={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
                       nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
@@ -144,6 +145,35 @@ const carouselItems = [
                       amet, consectetur adipiscing elit. Fusce a nulla eget massa
                       sagittis ultricies ut at purus. Mauris iaculis.`}
           />
+        </div>
+      </div>
+    </Section>
+    <Section variant="paper" id="events">
+      <div class="container">
+        <div class="text-container">
+          <SectionHeader variant="inverted">
+            <h2>Events</h2>
+          </SectionHeader>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
+            nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
+            cursus turpis, eu cursus nulla eleifend sed. Praesent quis ligula ut
+            sapien molestie eleifend et quis mi.
+          </p>
+          <Link variant="tertiary" to="/events" text="View all events" />
+        </div>
+        <div class="event-container">
+          <ul>
+            <li>
+              <Event />
+            </li>
+            <li>
+              <Event />
+            </li>
+            <li>
+              <Event />
+            </li>
+          </ul>
         </div>
       </div>
     </Section>
@@ -257,6 +287,31 @@ const carouselItems = [
       display: flex;
       flex-wrap: wrap;
       gap: 1.5rem;
+    }
+  }
+
+  :global(section#events) {
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+
+    .text-container {
+      p {
+        color: t.$clr-grey;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    .event-container {
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 </style>

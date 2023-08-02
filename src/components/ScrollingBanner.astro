@@ -18,7 +18,6 @@ const { text } = Astro.props;
   .scrolling-banner {
     position: sticky;
     top: 0;
-    margin-top: auto;
   }
 
   .container {
@@ -28,7 +27,7 @@ const { text } = Astro.props;
     text-align: center;
     font-size: clamp(0.875rem, 1vw, 1.125rem);
     color: black;
-    background: center / cover no-repeat url("../assets/paper-background.png");
+    background: center / cover url("../assets/paper-background.svg") t.$clr-tan;
   }
 
   .container::before,

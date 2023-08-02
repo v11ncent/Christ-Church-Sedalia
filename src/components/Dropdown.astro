@@ -31,15 +31,16 @@ const openValue = open ? "" : null;
       super();
 
       const details = this.querySelector("details");
+      const summary = this.querySelector("summary");
       const button = this.querySelector(".button") as HTMLElement;
 
-      if (!button || !details) return;
+      if (!button || !details || !summary) return;
 
       if (details.getAttribute("open") === "") {
         button.style.transform = "rotate(-45deg)";
       }
 
-      details.addEventListener("click", (event) => {
+      summary.addEventListener("click", (event) => {
         const open = details.getAttribute("open");
 
         if (open === "") {
@@ -62,7 +63,6 @@ const openValue = open ? "" : null;
     border-radius: t.$br-main;
     filter: drop-shadow(0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25));
     background-color: white;
-    cursor: pointer;
   }
 
   summary {
@@ -78,6 +78,7 @@ const openValue = open ? "" : null;
     background-color: t.$clr-green;
     border-radius: t.$br-main;
     box-shadow: 0rem 0.25rem 0.75rem 0rem #f1f1ec;
+    cursor: pointer;
 
     &::marker {
       content: none;
