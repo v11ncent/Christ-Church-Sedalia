@@ -57,12 +57,18 @@ const openValue = open ? "" : null;
 
 <style lang="scss">
   @use "../styles/tokens/tokens" as t;
+  $bp-tablet: 40rem;
 
   astro-details {
+    max-width: 36rem;
     width: 100%;
+    background-color: white;
     border-radius: t.$br-main;
     filter: drop-shadow(0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25));
-    background-color: white;
+
+    &:nth-of-type(odd) {
+      margin-left: auto;
+    }
   }
 
   summary {
@@ -73,7 +79,7 @@ const openValue = open ? "" : null;
     font-size: 1.125rem;
     font-weight: 400;
     font-family: t.$ff-poppy;
-    letter-spacing: 0.75px;
+    letter-spacing: 0.0469rem;
     color: white;
     background-color: t.$clr-green;
     border-radius: t.$br-main;

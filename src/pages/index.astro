@@ -235,7 +235,6 @@ const carouselItems = [
 
 <style lang="scss">
   @use "../styles/tokens/tokens" as t;
-  $bp-tablet: 31.25rem;
 
   section#hero {
     display: flex;
@@ -327,14 +326,8 @@ const carouselItems = [
   }
 
   :global(section#bible-study) {
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 3rem;
-
-      p {
-        color: t.$clr-grey;
-      }
+    p {
+      color: t.$clr-grey;
     }
 
     .text-container {
@@ -345,8 +338,14 @@ const carouselItems = [
 
     .dropdown-container {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       gap: 1.5rem;
+      margin-top: 2.5rem;
+
+      @media (min-width: t.$bp-tablet) {
+        gap: 3rem;
+        margin-top: 4rem;
+      }
     }
   }
 
