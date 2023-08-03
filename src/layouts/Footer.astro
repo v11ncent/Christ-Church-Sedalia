@@ -68,72 +68,70 @@ import logo from "../assets/logo.svg";
 
   .intro {
     max-width: 28rem;
-  }
 
-  .intro-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.75rem;
+    .intro-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.75rem;
 
-    img {
-      margin-right: 0.75rem;
-    }
+      img {
+        margin-right: 0.75rem;
+      }
 
-    .intro-heading {
-      font-size: 1.25rem;
-      font-weight: 400;
-      font-family: t.$ff-yeseva;
-      color: t.$clr-black;
-    }
-  }
-
-  p {
-    color: t.$clr-grey;
-    font-size: 0.875rem;
-  }
-
-  nav {
-    header {
-      margin-bottom: 1.125rem;
-
-      .nav-heading {
-        position: relative;
+      .intro-heading {
+        font-size: 1.25rem;
         font-weight: 400;
         font-family: t.$ff-yeseva;
         color: t.$clr-black;
-        z-index: 1;
-        max-width: fit-content;
-
-        &::after {
-          position: absolute;
-          content: "";
-          width: 120%;
-          height: 80%;
-          bottom: 0;
-          left: 0;
-          z-index: -1;
-          transform: translate(-15%, 20%);
-          border-radius: t.$br-main;
-          background-color: t.$clr-dark-tan;
-        }
       }
     }
 
-    ul {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    li {
-      font-family: t.$ff-poppy;
+    p {
       color: t.$clr-grey;
       font-size: 0.875rem;
+    }
+  }
 
-      a {
-        text-decoration: none;
-        color: t.$clr-grey;
+  nav header {
+    margin-bottom: 1.125rem;
+
+    .nav-heading {
+      position: relative;
+      font-weight: 400;
+      font-family: t.$ff-yeseva;
+      color: t.$clr-black;
+      z-index: 1;
+      max-width: fit-content;
+
+      &::after {
+        position: absolute;
+        content: "";
+        width: 120%;
+        height: 80%;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        transform: translate(-15%, 20%);
+        border-radius: t.$br-main;
+        background-color: t.$clr-dark-tan;
       }
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  li {
+    font-family: t.$ff-poppy;
+    color: t.$clr-grey;
+    font-size: 0.875rem;
+
+    a {
+      text-decoration: none;
+      color: t.$clr-grey;
     }
   }
 </style>

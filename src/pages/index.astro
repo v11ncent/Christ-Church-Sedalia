@@ -28,6 +28,26 @@ const carouselItems = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla eget massa sagittis ultricies",
   },
+  {
+    title: "Video",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla eget massa sagittis ultricies",
+  },
+  {
+    title: "Video",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla eget massa sagittis ultricies",
+  },
+  {
+    title: "Video",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla eget massa sagittis ultricies",
+  },
+  {
+    title: "Video",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla eget massa sagittis ultricies",
+  },
 ];
 ---
 
@@ -56,7 +76,7 @@ const carouselItems = [
     </section>
     <Section id="our-mission">
       <MaxWidthContainer>
-        <div class="container">
+        <div class="container center">
           <div class="text-container">
             <SectionHeader>
               <h2>Mission In Christ</h2>
@@ -82,7 +102,7 @@ const carouselItems = [
             <Link variant="tertiary" to="/" text="Read more about us" />
           </div>
           <div class="image-container">
-            <Image src={missionImageOne} alt="" />
+            <Image src={missionImageOne} alt="Image of a church." />
           </div>
         </div>
       </MaxWidthContainer>
@@ -215,6 +235,7 @@ const carouselItems = [
 
 <style lang="scss">
   @use "../styles/tokens/tokens" as t;
+  $bp-tablet: 31.25rem;
 
   section#hero {
     display: flex;
@@ -262,6 +283,7 @@ const carouselItems = [
       display: flex;
       flex-wrap: wrap;
       gap: 3rem;
+      max-width: 34.375rem;
     }
 
     p {
@@ -277,7 +299,7 @@ const carouselItems = [
     }
 
     .image-container {
-      min-height: 20.625rem;
+      min-height: 21rem;
     }
 
     .image-container img {
@@ -296,6 +318,11 @@ const carouselItems = [
       &:last-of-type {
         margin-bottom: 1.5rem;
       }
+    }
+
+    .links {
+      display: flex;
+      gap: 0.75rem;
     }
   }
 

@@ -33,8 +33,16 @@ const { items } = Astro.props;
 
   const swiper = new Swiper(".swiper", {
     modules: [Navigation],
-    slidesPerView: 1.1,
-    spaceBetween: "16",
+    breakpoints: {
+      320: {
+        slidesPerView: 1.1,
+        spaceBetween: "16",
+      },
+      500: {
+        slidesPerView: 2.5,
+        spaceBetween: "32",
+      },
+    },
 
     navigation: {
       nextEl: ".next-button",

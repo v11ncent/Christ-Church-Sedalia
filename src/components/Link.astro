@@ -52,6 +52,10 @@ const externalProps = external ? { target: "_blank", rel: "noopener" } : {};
     font-family: t.$ff-poppy;
     font-weight: 500;
     font-size: inherit;
+
+    @media (min-width: 500px) {
+      max-width: fit-content;
+    }
   }
 
   .primary {

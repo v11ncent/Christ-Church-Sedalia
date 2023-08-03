@@ -11,8 +11,13 @@ h6 {
 }
 
 p {
+  max-width: 65ch;
   font-family: t.$ff-poppy;
   line-height: 1.5;
+}
+
+.center {
+  margin: 0 auto;
 }
 
 .sr-only {
