@@ -103,79 +103,110 @@ const carouselItems = [
       <Carousel items={carouselItems} />
     </Section>
     <Section id="bible-study">
-      <div class="container">
-        <div class="text-container">
-          <SectionHeader>
-            <h2>Bible Studies</h2>
-          </SectionHeader>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
-            nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
-            cursus turpis, eu cursus nulla eleifend sed.
-          </p>
-          <Link
-            variant="tertiary"
-            to="/bible-study"
-            text="All of our bible studies"
-          />
+      <MaxWidthContainer>
+        <div class="container">
+          <div class="text-container">
+            <SectionHeader>
+              <h2>Bible Studies</h2>
+            </SectionHeader>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
+              nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
+              cursus turpis, eu cursus nulla eleifend sed.
+            </p>
+            <Link
+              variant="tertiary"
+              to="/bible-study"
+              text="All of our bible studies"
+            />
+          </div>
+          <div class="dropdown-container">
+            <Dropdown
+              open={true}
+              summary="Child Bible Studies"
+              content={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
+                      nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
+                      cursus turpis, eu cursus nulla eleifend sed. Lorem ipsum dolor sit
+                      amet, consectetur adipiscing elit. Fusce a nulla eget massa
+                      sagittis ultricies ut at purus. Mauris iaculis.`}
+            />
+            <Dropdown
+              summary="Teen Bible Studies"
+              content={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
+                      nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
+                      cursus turpis, eu cursus nulla eleifend sed. Lorem ipsum dolor sit
+                      amet, consectetur adipiscing elit. Fusce a nulla eget massa
+                      sagittis ultricies ut at purus. Mauris iaculis.`}
+            />
+            <Dropdown
+              summary="Adult Bible Studies"
+              content={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
+                      nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
+                      cursus turpis, eu cursus nulla eleifend sed. Lorem ipsum dolor sit
+                      amet, consectetur adipiscing elit. Fusce a nulla eget massa
+                      sagittis ultricies ut at purus. Mauris iaculis.`}
+            />
+          </div>
         </div>
-        <div class="dropdown-container">
-          <Dropdown
-            open={true}
-            summary="Child Bible Studies"
-            content={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
-                      nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
-                      cursus turpis, eu cursus nulla eleifend sed. Lorem ipsum dolor sit
-                      amet, consectetur adipiscing elit. Fusce a nulla eget massa
-                      sagittis ultricies ut at purus. Mauris iaculis.`}
-          />
-          <Dropdown
-            summary="Teen Bible Studies"
-            content={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
-                      nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
-                      cursus turpis, eu cursus nulla eleifend sed. Lorem ipsum dolor sit
-                      amet, consectetur adipiscing elit. Fusce a nulla eget massa
-                      sagittis ultricies ut at purus. Mauris iaculis.`}
-          />
-          <Dropdown
-            summary="Adult Bible Studies"
-            content={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
-                      nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
-                      cursus turpis, eu cursus nulla eleifend sed. Lorem ipsum dolor sit
-                      amet, consectetur adipiscing elit. Fusce a nulla eget massa
-                      sagittis ultricies ut at purus. Mauris iaculis.`}
-          />
-        </div>
-      </div>
+      </MaxWidthContainer>
     </Section>
     <Section variant="paper" id="events">
-      <div class="container">
-        <div class="text-container">
-          <SectionHeader variant="inverted">
-            <h2>Events</h2>
-          </SectionHeader>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
-            nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
-            cursus turpis, eu cursus nulla eleifend sed. Praesent quis ligula ut
-            sapien molestie eleifend et quis mi.
-          </p>
-          <Link variant="tertiary" to="/events" text="View all events" />
+      <MaxWidthContainer>
+        <div class="container">
+          <div class="text-container">
+            <SectionHeader variant="inverted">
+              <h2>Events</h2>
+            </SectionHeader>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
+              nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
+              cursus turpis, eu cursus nulla eleifend sed. Praesent quis ligula
+              ut sapien molestie eleifend et quis mi.
+            </p>
+            <Link variant="tertiary" to="/events" text="View all events" />
+          </div>
+          <div class="event-container">
+            <ul>
+              <li>
+                <Event />
+              </li>
+              <li>
+                <Event />
+              </li>
+              <li>
+                <Event />
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="event-container">
-          <ul>
-            <li>
-              <Event />
-            </li>
-            <li>
-              <Event />
-            </li>
-            <li>
-              <Event />
-            </li>
-          </ul>
+      </MaxWidthContainer>
+    </Section>
+    <Section id="join">
+      <MaxWidthContainer>
+        <div class="container">
+          <div class="text-container">
+            <SectionHeader variant="no-decoration">
+              <h2>Join Us</h2>
+            </SectionHeader>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
+              nulla eget massa sagittis ultricies ut at purus.
+            </p>
+            <div class="links">
+              <Link
+                variant="primary"
+                to="/bible-study"
+                text="Join our bible study"
+              />
+              <Link variant="secondary" to="/contact" text="Contact us" />
+            </div>
+          </div>
+          <div class="decorations-container">
+            <div class="circle"></div>
+            <div class="thorns"></div>
+          </div>
         </div>
-      </div>
+      </MaxWidthContainer>
     </Section>
   </main>
 </Layout>
@@ -311,6 +342,73 @@ const carouselItems = [
         gap: 2rem;
         width: 100%;
         height: 100%;
+      }
+    }
+  }
+
+  :global(section#join) {
+    overflow: hidden;
+    background: center / cover no-repeat url("../assets/join-background.png");
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      margin-top: calc(t.$pd-block * 3);
+      color: t.$clr-tan;
+      text-align: center;
+    }
+
+    .text-container {
+      grid-column: 1;
+      grid-row: 1;
+      z-index: 10;
+
+      :global(.section-header) {
+        margin: 0 auto 1.5rem auto;
+      }
+
+      p {
+        margin-bottom: 1.5rem;
+      }
+
+      .links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+    }
+
+    .decorations-container {
+      position: relative;
+      grid-column: 1;
+      grid-row: 1;
+
+      .circle,
+      .thorns {
+        position: absolute;
+        content: "";
+        width: 35rem;
+        height: 35rem;
+        border-radius: 100%;
+      }
+
+      .circle {
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        background: center / cover url("../assets/paper-background.svg")
+          t.$clr-black;
+        transform: translate(-50%, -50%);
+      }
+
+      .thorns {
+        z-index: 1;
+        top: 0;
+        left: 50%;
+        background: center / contain url("../assets/thorns.svg");
+        border-radius: 100%;
+        transform: translate(-50%, -35%);
       }
     }
   }

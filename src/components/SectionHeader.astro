@@ -1,6 +1,6 @@
 ---
 interface Props {
-  variant?: "inverted";
+  variant?: "inverted" | "no-decoration";
 }
 
 const { variant = "" } = Astro.props;
@@ -14,9 +14,15 @@ const { variant = "" } = Astro.props;
           <slot />
         </header>
       );
+    } else if (variant === "no-decoration") {
+      return (
+        <header class="section-header no-decoration">
+          <slot />
+        </header>
+      );
     } else {
       return (
-        <header class="section-header">
+        <header class="section-header decoration">
           <slot />
         </header>
       );
@@ -35,7 +41,7 @@ const { variant = "" } = Astro.props;
     font-size: t.$fs-heading;
     font-family: t.$ff-heading;
 
-    &::after {
+    &.decoration::after {
       position: absolute;
       content: "";
       z-index: -1;
