@@ -19,8 +19,12 @@
   .event {
     position: relative;
     min-height: 16rem;
-    background-color: t.$clr-black;
     cursor: pointer;
+    background-color: t.$clr-black;
+
+    @media (min-width: t.$bp-tablet) {
+      min-height: 19rem;
+    }
 
     &:hover .hover-container {
       opacity: 1;

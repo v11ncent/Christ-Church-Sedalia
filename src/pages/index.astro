@@ -359,12 +359,17 @@ const carouselItems = [
       display: flex;
       flex-direction: column;
       gap: 4rem;
+      margin: 0 auto;
     }
 
     .text-container {
       p {
         color: t.$clr-grey;
         margin-bottom: 1.5rem;
+      }
+
+      @media (min-width: t.$bp-tablet) {
+        max-width: 32rem;
       }
     }
 
