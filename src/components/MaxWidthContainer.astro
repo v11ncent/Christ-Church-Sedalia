@@ -2,10 +2,14 @@
   <slot />
 </div>
 
-<style>
+<style lang="scss">
+  @use "../styles/tokens/tokens" as t;
+
   .max-width {
-    display: flex;
-    width: min(100%, 80rem);
     margin: auto;
+
+    @media (min-width: t.$bp-desktop) {
+      width: min(100%, 80rem);
+    }
   }
 </style>

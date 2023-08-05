@@ -108,20 +108,24 @@ const carouselItems = [
       </MaxWidthContainer>
     </Section>
     <Section variant="paper" id="media-hub">
-      <SectionHeader variant="inverted">
-        <h2>Media Hub</h2>
-      </SectionHeader>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla
-        eget massa sagittis ultricies ut at purus. Mauris iaculis cursus turpis,
-        eu cursus nulla eleifend sed. Praesent quis ligula ut sapien molestie
-        eleifend et quis mi.
-      </p>
-      <div class="links">
-        <Link variant="tertiary" to="/" text="View all videos" />
-        <Link variant="no-decoration" to="/" text="Our Facebook page" />
-      </div>
-      <Carousel items={carouselItems} />
+      <MaxWidthContainer>
+        <div class="text-container">
+          <SectionHeader variant="inverted">
+            <h2>Media Hub</h2>
+          </SectionHeader>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
+            nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
+            cursus turpis, eu cursus nulla eleifend sed. Praesent quis ligula ut
+            sapien molestie eleifend et quis mi.
+          </p>
+          <div class="links">
+            <Link variant="tertiary" to="/" text="View all videos" />
+            <Link variant="no-decoration" to="/" text="Our Facebook page" />
+          </div>
+        </div>
+        <Carousel items={carouselItems} />
+      </MaxWidthContainer>
     </Section>
     <Section id="bible-study">
       <MaxWidthContainer>
@@ -173,7 +177,7 @@ const carouselItems = [
     </Section>
     <Section variant="paper" id="events">
       <MaxWidthContainer>
-        <div class="container">
+        <div class="container center">
           <div class="text-container">
             <SectionHeader variant="inverted">
               <h2>Events</h2>
@@ -202,7 +206,7 @@ const carouselItems = [
         </div>
       </MaxWidthContainer>
     </Section>
-    <Section id="join">
+    <section id="join">
       <MaxWidthContainer>
         <div class="container">
           <div class="text-container">
@@ -228,7 +232,7 @@ const carouselItems = [
           </div>
         </div>
       </MaxWidthContainer>
-    </Section>
+    </section>
   </main>
   <Footer />
 </Layout>
@@ -265,7 +269,6 @@ const carouselItems = [
     }
 
     p {
-      max-width: 60ch;
       margin-bottom: 1.5rem;
       line-height: 1.5;
     }
@@ -287,7 +290,7 @@ const carouselItems = [
       display: flex;
       flex-wrap: wrap;
       gap: 3rem;
-      max-width: 34.375rem;
+      max-width: t.$w-container;
     }
 
     p {
@@ -316,6 +319,10 @@ const carouselItems = [
   }
 
   :global(section#media-hub) {
+    .text-container {
+      max-width: t.$w-container;
+    }
+
     p {
       color: t.$clr-grey;
 
@@ -331,11 +338,17 @@ const carouselItems = [
   }
 
   :global(section#bible-study) {
+    .container {
+      width: 100%;
+    }
+
     p {
       color: t.$clr-grey;
     }
 
     .text-container {
+      max-width: t.$w-container;
+
       p {
         margin-bottom: 1.5rem;
       }
@@ -359,17 +372,13 @@ const carouselItems = [
       display: flex;
       flex-direction: column;
       gap: 4rem;
-      margin: 0 auto;
+      max-width: t.$w-container;
     }
 
     .text-container {
       p {
         color: t.$clr-grey;
         margin-bottom: 1.5rem;
-      }
-
-      @media (min-width: t.$bp-tablet) {
-        max-width: 32rem;
       }
     }
 
@@ -384,15 +393,18 @@ const carouselItems = [
     }
   }
 
-  :global(section#join) {
+  section#join {
+    padding: calc(t.$pd-block * 4) t.$pd-inline;
     overflow: hidden;
     background: center / cover no-repeat url("../assets/join-background.png");
 
+    :global(.max-width) {
+      display: flex;
+    }
+
     .container {
       display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr;
-      margin-top: calc(t.$pd-block * 3);
+      margin: auto;
       color: t.$clr-tan;
       text-align: center;
     }
@@ -401,19 +413,25 @@ const carouselItems = [
       grid-column: 1;
       grid-row: 1;
       z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      max-width: 28rem;
 
-      :global(.section-header) {
-        margin: 0 auto 1.5rem auto;
-      }
-
-      p {
-        margin-bottom: 1.5rem;
+      @media (min-width: t.$bp-tablet) {
+        gap: 2rem;
       }
 
       .links {
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
         gap: 0.75rem;
+      }
+
+      :global(.section-header) {
+        margin: 0;
       }
     }
 
@@ -435,6 +453,7 @@ const carouselItems = [
         z-index: 2;
         top: 50%;
         left: 50%;
+        box-shadow: 0rem 0.25rem 1.5625rem 0rem rgba(52, 52, 52, 0.4);
         background: center / cover url("../assets/paper-background.svg")
           t.$clr-black;
         transform: translate(-50%, -50%);
