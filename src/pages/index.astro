@@ -6,11 +6,12 @@ import Section from "../layouts/Section.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import ScrollingBanner from "../components/ScrollingBanner.astro";
 import Link from "../components/Link.astro";
-import missionImageOne from "../assets/our-mission-1.png";
 import Carousel from "../layouts/Carousel.astro";
 import Dropdown from "../components/Dropdown.astro";
 import Event from "../components/Event.astro";
 import Footer from "../layouts/Footer.astro";
+import missionImageOne from "../assets/our-mission-1.png";
+import missionImageTwo from "../assets/our-mission-2.png";
 
 const carouselItems = [
   {
@@ -102,7 +103,16 @@ const carouselItems = [
             <Link variant="tertiary" to="/" text="Read more about us" />
           </div>
           <div class="image-container">
-            <Image src={missionImageOne} alt="Image of a church." />
+            <Image
+              src={missionImageTwo}
+              alt="Image of a church during sunset."
+              class="small"
+            />
+            <Image
+              src={missionImageOne}
+              alt="Image of a church against a blue sky."
+              class="large"
+            />
           </div>
         </div>
       </MaxWidthContainer>
@@ -289,11 +299,25 @@ const carouselItems = [
   }
 
   :global(section#our-mission) {
+    $bp-two-images: 68rem;
+
     .container {
       display: flex;
       flex-wrap: wrap;
       gap: 3rem;
       max-width: t.$w-container;
+
+      @media (min-width: t.$bp-desktop) {
+        gap: min(8vw, 8rem);
+        max-width: 100%;
+      }
+    }
+
+    .text-container,
+    .image-container {
+      @media (min-width: t.$bp-desktop) {
+        flex: 1;
+      }
     }
 
     p {
@@ -310,14 +334,39 @@ const carouselItems = [
 
     .image-container {
       min-height: 21rem;
+
+      @media (min-width: t.$bp-desktop) {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+      }
+
+      @media (min-width: $bp-two-images) {
+        max-height: 28.5417rem;
+      }
     }
 
     .image-container img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: t.$br-large;
+      border-radius: t.$br-main;
       border: 0.25rem solid t.$clr-tan;
+    }
+
+    .image-container img.small {
+      grid-column: 1 / span 3;
+      grid-row: 3;
+      z-index: 2;
+
+      @media (max-width: $bp-two-images) {
+        display: none;
+      }
+    }
+
+    .image-container img.large {
+      grid-column: 2 / -1;
+      grid-row: 1 / -1;
     }
   }
 
