@@ -156,6 +156,7 @@ const carouselItems = [
                       sagittis ultricies ut at purus. Mauris iaculis.`}
             />
             <Dropdown
+              open={true}
               summary="Teen Bible Studies"
               content={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
                       nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
@@ -164,6 +165,7 @@ const carouselItems = [
                       sagittis ultricies ut at purus. Mauris iaculis.`}
             />
             <Dropdown
+              open={true}
               summary="Adult Bible Studies"
               content={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
                       nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
@@ -452,8 +454,6 @@ const carouselItems = [
       .thorns {
         position: absolute;
         content: "";
-        width: 35rem;
-        height: 35rem;
         border-radius: 100%;
       }
 
@@ -461,6 +461,8 @@ const carouselItems = [
         z-index: 2;
         top: 50%;
         left: 50%;
+        width: 40rem;
+        height: 40rem;
         box-shadow: 0rem 0.25rem 1.5625rem 0rem rgba(52, 52, 52, 0.4);
         background: center / cover url("../assets/paper-background.svg")
           t.$clr-black;
@@ -469,11 +471,13 @@ const carouselItems = [
 
       .thorns {
         z-index: 1;
-        top: 0;
+        top: 50%;
         left: 50%;
-        background: center / contain url("../assets/thorns.svg");
+        width: 50rem;
+        height: 50rem;
+        background: center / contain no-repeat url("../assets/thorns.svg");
         border-radius: 100%;
-        transform: translate(-50%, -35%);
+        transform: translate(-50%, -50%);
       }
     }
   }
