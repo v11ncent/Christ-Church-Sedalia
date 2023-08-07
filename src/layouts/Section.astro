@@ -11,21 +11,7 @@ const { variant = "", id } = Astro.props;
     if (variant === "paper") {
       return (
         <section id={id} class="paper">
-          <div class="rip" />
-          <div class="inner">
-            <slot />
-          </div>
-          <div class="rip" />
-        </section>
-      );
-    } else if (variant === "paper-with-slope") {
-      return (
-        <section id={id} class="paper-with-slope">
-          <div class="slope" />
-          <div class="inner">
-            <slot />
-          </div>
-          <div class="slope" />
+          <slot />
         </section>
       );
     } else {
@@ -40,49 +26,34 @@ const { variant = "", id } = Astro.props;
 
 <style lang="scss">
   @use "../styles/tokens/tokens" as t;
-  $rip-height: 2rem;
-  $slope-height: t.$h-paper-slope;
 
-  .generic {
+  section {
     padding: t.$pd-section;
   }
 
-  .inner {
+  .paper {
+    position: relative;
     padding: t.$pd-section;
     background: center / cover url("../assets/paper-background.png") t.$clr-tan;
-  }
 
-  .rip {
-    width: 100%;
-    height: $rip-height;
-    background: center / cover url("../assets/paper.png");
-
-    &:last-of-type {
-      transform: rotate(180deg);
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      left: 0;
+      width: 100%;
+      height: 2rem;
+      background: center / cover no-repeat url("../assets/paper.png");
     }
-  }
 
-  .paper-with-slope {
-    position: relative;
-  }
+    &::before {
+      top: 0;
+      transform: translate(0, -95%);
+    }
 
-  .slope {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: $slope-height;
-    background: center / cover url("../assets/paper-slope.png");
-  }
-
-  .slope:first-of-type {
-    top: 0;
-    background: center / cover url("../assets/paper-slope.png");
-    transform: translate(0, -95%) rotate(180deg);
-  }
-
-  .slope:last-of-type {
-    bottom: 0;
-    background: center / cover url("../assets/paper-slope.png");
-    transform: translate(0, 95%);
+    &::after {
+      bottom: 0;
+      transform: translate(0, 95%) rotate(180deg);
+    }
   }
 </style>

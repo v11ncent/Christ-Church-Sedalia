@@ -120,24 +120,26 @@ const carouselItems = [
       </MaxWidthContainer>
     </Section>
     <Section variant="paper" id="media-hub">
-      <MaxWidthContainer>
-        <div class="text-container">
-          <SectionHeader variant="inverted">
-            <h2>Media Hub</h2>
-          </SectionHeader>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
-            nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
-            cursus turpis, eu cursus nulla eleifend sed. Praesent quis ligula ut
-            sapien molestie eleifend et quis mi.
-          </p>
-          <div class="links">
-            <Link variant="tertiary" to="/" text="View all videos" />
-            <Link variant="no-decoration" to="/" text="Our Facebook page" />
+      <div class="no-overflow">
+        <MaxWidthContainer>
+          <div class="text-container">
+            <SectionHeader variant="inverted">
+              <h2>Media Hub</h2>
+            </SectionHeader>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
+              nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
+              cursus turpis, eu cursus nulla eleifend sed. Praesent quis ligula
+              ut sapien molestie eleifend et quis mi.
+            </p>
+            <div class="links">
+              <Link variant="tertiary" to="/" text="View all videos" />
+              <Link variant="no-decoration" to="/" text="Our Facebook page" />
+            </div>
           </div>
-        </div>
-        <Carousel items={carouselItems} />
-      </MaxWidthContainer>
+          <Carousel items={carouselItems} />
+        </MaxWidthContainer>
+      </div>
     </Section>
     <Section id="bible-study">
       <MaxWidthContainer>
@@ -189,7 +191,7 @@ const carouselItems = [
         </div>
       </MaxWidthContainer>
     </Section>
-    <Section variant="paper-with-slope" id="events">
+    <Section variant="paper" id="events">
       <MaxWidthContainer>
         <div class="container center">
           <div class="text-container">
@@ -382,7 +384,12 @@ const carouselItems = [
   }
 
   :global(section#media-hub) {
-    overflow: hidden;
+    padding: 0;
+
+    .no-overflow {
+      overflow: hidden;
+      padding: t.$pd-section;
+    }
 
     .text-container {
       max-width: t.$w-container;
@@ -404,8 +411,6 @@ const carouselItems = [
   }
 
   :global(section#bible-study) {
-    padding: t.$pd-block t.$pd-inline calc(t.$pd-block + t.$h-paper-slope)
-      t.$pd-inline;
     .container {
       width: 100%;
     }
@@ -474,8 +479,7 @@ const carouselItems = [
   }
 
   section#join {
-    padding: calc((t.$pd-block * 2.5) + (t.$h-paper-slope / 2)) t.$pd-inline
-      calc(t.$pd-block * 2.5) t.$pd-inline; /* Not my proudest solution... */
+    padding: calc(t.$pd-block * 2.5) t.$pd-inline;
     overflow: hidden;
     background: center / cover no-repeat url("../assets/join-background.png");
 
