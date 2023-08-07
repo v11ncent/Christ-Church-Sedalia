@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/BaseLayout.astro";
+import NavigationBar from "../layouts/NavigationBar.astro";
 import MaxWidthContainer from "../components/MaxWidthContainer.astro";
 import Section from "../layouts/Section.astro";
 import SectionHeader from "../components/SectionHeader.astro";
@@ -53,6 +54,7 @@ const carouselItems = [
 ---
 
 <Layout title="Welcome to Astro.">
+  <NavigationBar />
   <main>
     <section id="hero">
       <MaxWidthContainer>
@@ -308,8 +310,11 @@ const carouselItems = [
       max-width: t.$w-container;
 
       @media (min-width: t.$bp-desktop) {
-        gap: min(8vw, 8rem);
         max-width: 100%;
+      }
+
+      @media (min-width: $bp-two-images) {
+        gap: min(8vw, 8rem);
       }
     }
 
