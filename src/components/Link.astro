@@ -45,6 +45,7 @@ const externalProps = external ? { target: "_blank", rel: "noopener" } : {};
 
   a {
     display: block;
+    width: 100%;
     padding: 0.75rem 2rem;
     text-align: center;
     text-decoration: none;
@@ -53,7 +54,7 @@ const externalProps = external ? { target: "_blank", rel: "noopener" } : {};
     font-weight: 500;
     font-size: inherit;
 
-    @media (min-width: 500px) {
+    @media (min-width: 31.25rem) {
       max-width: fit-content;
     }
   }
@@ -65,12 +66,12 @@ const externalProps = external ? { target: "_blank", rel: "noopener" } : {};
 
   .secondary {
     color: white;
-    border: 1.5px solid white;
+    border: 0.0938rem solid white;
   }
 
   .tertiary {
     color: t.$clr-black;
-    border: 1.5px solid t.$clr-black;
+    border: 0.0938rem solid t.$clr-black;
   }
 
   .no-decoration {

@@ -189,7 +189,7 @@ const carouselItems = [
         </div>
       </MaxWidthContainer>
     </Section>
-    <Section variant="paper" id="events">
+    <Section variant="paper-with-slope" id="events">
       <MaxWidthContainer>
         <div class="container center">
           <div class="text-container">
@@ -255,6 +255,8 @@ const carouselItems = [
   @use "../styles/tokens/tokens" as t;
 
   section#hero {
+    $breakpoint: 31.25rem;
+
     display: flex;
     flex-direction: column;
     min-height: min(90vh, 50rem);
@@ -270,7 +272,10 @@ const carouselItems = [
       flex-direction: column;
       align-items: center;
       margin: auto;
-      text-align: center;
+
+      @media (min-width: $breakpoint) {
+        text-align: center;
+      }
     }
 
     header {
@@ -292,10 +297,11 @@ const carouselItems = [
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
-      margin: 0 auto;
+      width: 100%;
 
-      :global(.link) {
-        width: 100%;
+      @media (min-width: $breakpoint) {
+        margin: 0 auto;
+        width: fit-content;
       }
     }
   }
@@ -392,6 +398,7 @@ const carouselItems = [
 
     .links {
       display: flex;
+      flex-wrap: wrap;
       gap: 0.75rem;
     }
   }
