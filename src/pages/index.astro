@@ -437,6 +437,10 @@ const carouselItems = [
       flex-direction: column;
       gap: 4rem;
       max-width: t.$w-container;
+
+      @media (min-width: t.$bp-desktop) {
+        max-width: 100%;
+      }
     }
 
     .text-container {
@@ -453,6 +457,14 @@ const carouselItems = [
         gap: 2rem;
         width: 100%;
         height: 100%;
+
+        li {
+          width: 100%;
+        }
+
+        @media (min-width: t.$bp-desktop) {
+          flex-direction: row;
+        }
       }
     }
   }
