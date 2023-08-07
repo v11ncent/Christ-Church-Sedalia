@@ -404,6 +404,8 @@ const carouselItems = [
   }
 
   :global(section#bible-study) {
+    padding: t.$pd-block t.$pd-inline calc(t.$pd-block + t.$h-paper-slope)
+      t.$pd-inline;
     .container {
       width: 100%;
     }
@@ -472,7 +474,8 @@ const carouselItems = [
   }
 
   section#join {
-    padding: calc(t.$pd-block * 2.5) t.$pd-inline;
+    padding: calc((t.$pd-block * 2.5) + (t.$h-paper-slope / 2)) t.$pd-inline
+      calc(t.$pd-block * 2.5) t.$pd-inline; /* Not my proudest solution... */
     overflow: hidden;
     background: center / cover no-repeat url("../assets/join-background.png");
 
