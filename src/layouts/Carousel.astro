@@ -42,6 +42,10 @@ const { items } = Astro.props;
         slidesPerView: 2.5,
         spaceBetween: "32",
       },
+      1000: {
+        slidesPerView: 3,
+        spaceBetween: "48",
+      },
     },
 
     navigation: {
@@ -62,6 +66,7 @@ const { items } = Astro.props;
 
   .swiper {
     width: 100%;
+    overflow: visible;
   }
 
   .navigation-buttons {

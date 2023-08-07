@@ -376,15 +376,10 @@ const carouselItems = [
   }
 
   :global(section#media-hub) {
-    padding: t.$pd-block 0;
+    overflow: hidden;
 
     .text-container {
-      padding: 0 t.$pd-inline;
       max-width: t.$w-container;
-    }
-
-    :global(.carousel) {
-      padding-left: t.$pd-inline;
     }
 
     p {
@@ -470,7 +465,7 @@ const carouselItems = [
   }
 
   section#join {
-    padding: calc(t.$pd-block * 4) t.$pd-inline;
+    padding: calc(t.$pd-block * 2.5) t.$pd-inline;
     overflow: hidden;
     background: center / cover no-repeat url("../assets/join-background.png");
 
@@ -530,7 +525,7 @@ const carouselItems = [
         width: 40rem;
         height: 40rem;
         box-shadow: 0rem 0.25rem 1.5625rem 0rem rgba(52, 52, 52, 0.4);
-        background: center / cover url("../assets/paper-background.svg")
+        background: center / cover url("../assets/paper-background.png")
           t.$clr-black;
         transform: translate(-50%, -50%);
       }
@@ -541,7 +536,7 @@ const carouselItems = [
         left: 50%;
         width: 50rem;
         height: 50rem;
-        background: center / contain no-repeat url("../assets/thorns.svg");
+        background: center / contain no-repeat url("../assets/thorns.png");
         border-radius: 100%;
         transform: translate(-50%, -50%);
       }

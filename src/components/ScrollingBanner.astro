@@ -27,7 +27,7 @@ const { text } = Astro.props;
     text-align: center;
     font-size: clamp(0.875rem, 1vw, 1.125rem);
     color: black;
-    background: center / cover url("../assets/paper-background.svg") t.$clr-tan;
+    background: center / cover url("../assets/paper-background.png") t.$clr-tan;
   }
 
   .container::before,
@@ -44,12 +44,13 @@ const { text } = Astro.props;
   .container::before {
     top: 0;
     transform: translate(0, -95%);
-    background: center / cover no-repeat url("../assets/paper.svg");
+    background: center / cover no-repeat url("../assets/paper.png");
   }
 
   .container::after {
     bottom: 0;
     transform: translate(0, 95%);
-    background: center / cover no-repeat url("../assets/paper-variant.svg");
+    background: center / cover no-repeat url("../assets/paper.png");
+    transform: translate(0, 100%) rotate(180deg);
   }
 </style>
