@@ -1,0 +1,112 @@
+---
+import MaxWidthContainer from "../components/MaxWidthContainer.astro";
+import Link from "../components/Link.astro";
+import ScrollingBanner from "../components/ScrollingBanner.astro";
+
+interface Props {
+  variant: "landing" | "inner";
+  id?: string;
+  heading?: string;
+  description?: string;
+}
+
+const { variant, id = "", heading, description } = Astro.props;
+---
+
+{
+  () => {
+    if (variant === "landing") {
+      return (
+        <section id={id} class="landing">
+          <MaxWidthContainer>
+            <div class="container">
+              <header>
+                <h1>{heading}</h1>
+              </header>
+              <p>{description}</p>
+              <div class="links">
+                <slot />
+              </div>
+            </div>
+          </MaxWidthContainer>
+          <ScrollingBanner text="Service on Sundays starting 10:00 CST at 936 East Holley, MO." />
+        </section>
+      );
+    } else if (variant === "inner") {
+      return (
+        <section id={id} class="inner">
+          <MaxWidthContainer>
+            <div class="container">
+              <header>
+                <h1>{heading}</h1>
+              </header>
+            </div>
+          </MaxWidthContainer>
+          <ScrollingBanner text="Service on Sundays starting 10:00 CST at 936 East Holley, MO." />
+        </section>
+      );
+    }
+  }
+}
+
+<style lang="scss">
+  @use "../styles/tokens/tokens" as t;
+  $breakpoint: 31.25rem;
+
+  section {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background: center / cover no-repeat url("../assets/hero.png");
+
+    &.landing {
+      min-height: min(90vh, 50rem);
+    }
+
+    &.inner {
+      min-height: min(50vh, 30rem);
+    }
+
+    :global(.max-width) {
+      padding: 0 t.$pd-inline;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: auto;
+
+      @media (min-width: $breakpoint) {
+        text-align: center;
+      }
+    }
+
+    &.landing header {
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      text-transform: capitalize;
+      font-size: clamp(2rem, 1rem + 3vw, 2.5rem);
+      font-family: t.$ff-yeseva;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      width: 100%;
+
+      @media (min-width: $breakpoint) {
+        margin: 0 auto;
+        width: fit-content;
+      }
+    }
+  }
+</style>

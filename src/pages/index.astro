@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import Layout from "../layouts/BaseLayout.astro";
 import NavigationBar from "../layouts/NavigationBar.astro";
+import HeroBanner from "../layouts/HeroBanner.astro";
 import MaxWidthContainer from "../components/MaxWidthContainer.astro";
 import Section from "../layouts/Section.astro";
 import SectionHeader from "../components/SectionHeader.astro";
@@ -56,27 +57,14 @@ const carouselItems = [
 <Layout title="Welcome to Astro.">
   <NavigationBar />
   <main>
-    <section id="hero">
-      <MaxWidthContainer>
-        <div class="container">
-          <header>
-            <h1>Come Worship Jesus With Us</h1>
-          </header>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Voluptatibus, molestias rem ducimus esse officia recusandae quidem
-            numquam nihil repellendus perferendis.
-          </p>
-          <div class="links">
-            <Link variant="primary" to="/bible-study" text="Bible study" />
-            <Link variant="secondary" to="/our-mission" text="Our mission" />
-          </div>
-        </div>
-      </MaxWidthContainer>
-      <ScrollingBanner
-        text="Service on Sundays starting 10:00 CST at 936 East Holley, MO."
-      />
-    </section>
+    <HeroBanner
+      variant="landing"
+      heading="Come Worship Jesus With Us"
+      description={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, molestias rem ducimus esse officia recusandae quidem numquam nihil repellendus perferendis."}
+    >
+      <Link variant="primary" to="/bible-study" text="Bible study" />
+      <Link variant="secondary" to="/our-mission" text="Our mission" />
+    </HeroBanner>
     <Section id="our-mission">
       <MaxWidthContainer>
         <div class="container center">
@@ -255,58 +243,6 @@ const carouselItems = [
 
 <style lang="scss">
   @use "../styles/tokens/tokens" as t;
-
-  section#hero {
-    $breakpoint: 31.25rem;
-
-    display: flex;
-    flex-direction: column;
-    min-height: min(90vh, 50rem);
-    color: white;
-    background: center / cover no-repeat url("../assets/hero.png");
-
-    :global(.max-width) {
-      padding: 0 t.$pd-inline;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: auto;
-
-      @media (min-width: $breakpoint) {
-        text-align: center;
-      }
-    }
-
-    header {
-      margin-bottom: 1.5rem;
-    }
-
-    h1 {
-      text-transform: capitalize;
-      font-size: clamp(2rem, 1rem + 3vw, 2.5rem);
-      font-family: t.$ff-yeseva;
-    }
-
-    p {
-      margin-bottom: 1.5rem;
-      line-height: 1.5;
-    }
-
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      width: 100%;
-
-      @media (min-width: $breakpoint) {
-        margin: 0 auto;
-        width: fit-content;
-      }
-    }
-  }
 
   :global(section#our-mission) {
     $bp-two-images: 68rem;

@@ -1,6 +1,6 @@
 ---
 interface Props {
-  variant?: "inverted" | "no-decoration";
+  variant?: "inverted" | "no-decoration" | "inner";
 }
 
 const { variant = "" } = Astro.props;
@@ -17,6 +17,12 @@ const { variant = "" } = Astro.props;
     } else if (variant === "no-decoration") {
       return (
         <header class="section-header no-decoration">
+          <slot />
+        </header>
+      );
+    } else if (variant === "inner") {
+      return (
+        <header class="section-header inner">
           <slot />
         </header>
       );
@@ -40,6 +46,7 @@ const { variant = "" } = Astro.props;
     margin-bottom: 1.5rem;
     font-size: t.$fs-heading;
     font-family: t.$ff-heading;
+    text-transform: capitalize;
 
     &.decoration::after {
       position: absolute;
@@ -68,5 +75,10 @@ const { variant = "" } = Astro.props;
         url("../assets/cross-decoration-inverted.svg") white;
       border-radius: 100%;
     }
+  }
+
+  .inner {
+    font-size: 2rem;
+    margin-bottom: 1rem;
   }
 </style>

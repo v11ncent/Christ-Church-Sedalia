@@ -1,0 +1,18 @@
+---
+import MaxWidthContainer from "../components/MaxWidthContainer.astro";
+---
+
+<section>
+  <header class="sr-only">Contact form area.</header>
+  <MaxWidthContainer>
+    <form action=""></form>
+  </MaxWidthContainer>
+</section>
+
+<style lang="scss">
+  @use "../styles/tokens/tokens" as t;
+
+  form {
+    border: 1px solid lightgrey;
+  }
+</style>

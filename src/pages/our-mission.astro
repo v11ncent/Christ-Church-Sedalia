@@ -1,0 +1,95 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/BaseLayout.astro";
+import NavigationBar from "../layouts/NavigationBar.astro";
+import MaxWidthContainer from "../components/MaxWidthContainer.astro";
+import Section from "../layouts/Section.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import ScrollingBanner from "../components/ScrollingBanner.astro";
+import Link from "../components/Link.astro";
+import Carousel from "../layouts/Carousel.astro";
+import Dropdown from "../components/Dropdown.astro";
+import Event from "../components/Event.astro";
+import Footer from "../layouts/Footer.astro";
+import HeroBanner from "../layouts/HeroBanner.astro";
+---
+
+<Layout title="Our Mission">
+  <NavigationBar />
+  <main>
+    <HeroBanner variant="inner" id="hero" heading="Our Mission" />
+    <Section>
+      <MaxWidthContainer>
+        <div class="container">
+          <SectionHeader variant="inner">
+            <h2>What we believe in</h2>
+          </SectionHeader>
+          <p class="space">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
+            nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
+            cursus turpis, eu cursus nulla eleifend sed. Praesent quis ligula ut
+            sapien molestie eleifend et quis mi. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Fusce a nulla eget massa sagittis
+            ultricies ut at purus. Mauris iaculis cursus turpis, eu cursus nulla
+            eleifend sed. Praesent quis ligula ut sapien molestie eleifend et
+            quis mi.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
+            nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
+            cursus turpis, eu cursus nulla eleifend sed. Praesent quis ligula ut
+            sapien molestie eleifend et quis mi.
+          </p>
+        </div>
+      </MaxWidthContainer>
+      <img src="" alt="" />
+    </Section>
+    <Section>
+      <MaxWidthContainer>
+        <div class="container">
+          <SectionHeader variant="inner">
+            <h2>How we accomplish it</h2>
+          </SectionHeader>
+          <p class="space">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
+            nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
+            cursus turpis, eu cursus nulla eleifend sed. Praesent quis ligula ut
+            sapien molestie eleifend et quis mi. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Fusce a nulla eget massa sagittis
+            ultricies ut at purus. Mauris iaculis cursus turpis, eu cursus nulla
+            eleifend sed. Praesent quis ligula ut sapien molestie eleifend et
+            quis mi.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
+            nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
+            cursus turpis, eu cursus nulla eleifend sed. Praesent quis ligula ut
+            sapien molestie eleifend et quis mi.
+          </p>
+        </div>
+      </MaxWidthContainer>
+    </Section>
+  </main>
+  <Footer />
+</Layout>
+
+<style lang="scss">
+  @use "../styles/tokens/tokens" as t;
+
+  :global(.max-width) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container {
+    margin: 0 auto;
+  }
+
+  p {
+    color: t.$clr-grey;
+  }
+
+  .space {
+    margin-bottom: 0.5rem;
+  }
+</style>
