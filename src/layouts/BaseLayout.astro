@@ -3,18 +3,19 @@ import BaseHead from "../components/BaseHead.astro";
 
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = "Christ Church Sedalia is a church located in Sedalia, MO.",
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <BaseHead
-      title="Christ Church Sedalia"
-      description="Christ Church Sedalia is a church located in Sedalia, MO."
-    />
+    <BaseHead title={title} description={description} />
   </head>
   <body>
     <slot />

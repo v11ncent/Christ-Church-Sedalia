@@ -11,12 +11,14 @@ import Watermark from "../components/Watermark.astro";
 import image from "../assets/hero.png";
 import ContactForm from "../layouts/ContactForm.astro";
 import InnerPageBannerImage from "../components/InnerPageBannerImage.astro";
+import InnerPageLayout from "../layouts/InnerPageLayout.astro";
 ---
 
 <Layout title="Our Mission">
-  <NavigationBar />
-  <main>
-    <HeroBanner variant="inner" id="hero" heading="Our Mission" />
+  <InnerPageLayout
+    heroBannerHeading="Our Mission"
+    contactFormHeading="Like to know more?"
+  >
     <Section>
       <MaxWidthContainer>
         <div class="container">
@@ -70,37 +72,5 @@ import InnerPageBannerImage from "../components/InnerPageBannerImage.astro";
         </div>
       </MaxWidthContainer>
     </Section>
-    <Section id="contact">
-      <ContactForm heading="Like to know more?" />
-    </Section>
-    <Watermark />
-  </main>
-  <Footer />
+  </InnerPageLayout>
 </Layout>
-
-<style lang="scss">
-  @use "../styles/tokens/tokens" as t;
-
-  main {
-    /* For watermark component */
-    position: relative;
-    overflow: hidden;
-  }
-
-  :global(.max-width) {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .container {
-    margin: 0 auto;
-  }
-
-  p {
-    color: t.$clr-grey;
-  }
-
-  .space {
-    margin-bottom: 0.5rem;
-  }
-</style>
