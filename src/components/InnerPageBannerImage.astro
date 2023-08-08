@@ -17,6 +17,10 @@ import MaxWidthContainer from "./MaxWidthContainer.astro";
     width: t.$w-inner-page-popouts;
     margin: 0 auto;
 
+    @media (max-width: t.$bp-desktop) {
+      padding: 0 t.$pd-inline;
+    }
+
     .inner {
       position: relative;
       width: t.$w-inner-page-popouts;
