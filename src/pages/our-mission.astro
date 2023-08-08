@@ -9,6 +9,7 @@ import Footer from "../layouts/Footer.astro";
 import HeroBanner from "../layouts/HeroBanner.astro";
 import Watermark from "../components/Watermark.astro";
 import image from "../assets/hero.png";
+import ContactForm from "../layouts/ContactForm.astro";
 ---
 
 <Layout title="Our Mission">
@@ -69,6 +70,9 @@ import image from "../assets/hero.png";
           </p>
         </div>
       </MaxWidthContainer>
+    </Section>
+    <Section id="contact">
+      <ContactForm heading="Like to know more?" />
     </Section>
     <Watermark />
   </main>

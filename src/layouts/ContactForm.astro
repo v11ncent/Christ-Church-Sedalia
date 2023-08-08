@@ -1,18 +1,153 @@
 ---
+export interface Props {
+  heading: string;
+}
+
 import MaxWidthContainer from "../components/MaxWidthContainer.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+const { heading } = Astro.props;
 ---
 
-<section>
-  <header class="sr-only">Contact form area.</header>
+<div class="form-container">
   <MaxWidthContainer>
-    <form action=""></form>
+    <SectionHeader variant="no-decoration">
+      <h1>{heading}</h1>
+    </SectionHeader>
+    <form name="contact" method="POST" data-netlify="true">
+      <input
+        type="hidden"
+        name="subject"
+        data-remove-prefix
+        value="New lead from https://www.vincewebdesigns.com/"
+      />
+      <div class="input-group">
+        <div class="field">
+          <label for="first-name" class="required">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Vince Corradetti"
+            required
+          />
+        </div>
+      </div>
+      <div class="input-group">
+        <div class="field">
+          <label for="email" class="required">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="vince@vincewebdesigns.com"
+            required
+          />
+        </div>
+        <div class="field">
+          <label for="phone">Phone Number</label>
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            placeholder="856-320-1103"
+          />
+        </div>
+      </div>
+      <div class="field">
+        <label for="message">Send a message</label>
+        <textarea
+          name="message"
+          id="message"
+          cols="30"
+          rows="10"
+          placeholder="Hey guys! I was just wondering about..."
+          required
+        >
+        </textarea>
+      </div>
+      <button type="submit">Send message. We'll get back to you soon!</button>
+    </form>
   </MaxWidthContainer>
-</section>
+</div>
 
 <style lang="scss">
-  @use "../styles/tokens/tokens" as t;
+  @use "../styles/tokens/_tokens.scss" as t;
+
+  .form-container {
+    :global(.section-header) {
+      max-width: fit-content;
+      margin-inline: auto;
+    }
+  }
 
   form {
-    border: 1px solid lightgrey;
+    position: relative;
+    display: grid;
+    gap: 2rem;
+    margin: 2rem auto 0 auto;
+    padding: 4rem 2rem;
+    border-radius: 1rem;
+    background-color: white;
+    box-shadow: t.$s-main;
+  }
+
+  .input-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    & > * {
+      width: 100%;
+    }
+  }
+
+  .field {
+    font-family: t.$ff-poppy;
+  }
+
+  label {
+    font-size: 1.125rem;
+    color: t.$clr-black;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  input,
+  textarea,
+  button {
+    border-radius: 0.25rem;
+
+    &:focus {
+      outline: 0.125rem solid t.$clr-green;
+    }
+  }
+
+  input,
+  textarea {
+    border: 0.0625rem solid t.$clr-grey;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+  }
+
+  textarea {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  button {
+    max-width: fit-content;
+    margin-top: 2rem;
+    padding: 0.75rem 1rem;
+    outline: transparent;
+    border: transparent;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: t.$ff-poppy;
+    color: white;
+    background-color: t.$clr-black;
+    cursor: pointer;
   }
 </style>
