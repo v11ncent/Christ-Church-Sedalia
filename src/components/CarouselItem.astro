@@ -1,4 +1,6 @@
 ---
+import CircleLink from "./CircleLink.astro";
+
 interface Props {
   title: string;
   description: string;
@@ -8,7 +10,9 @@ const { title, description } = Astro.props;
 ---
 
 <article>
-  <div class="image-container"></div>
+  <div class="image-container">
+    <CircleLink to="/" text="View video" />
+  </div>
   <div class="text-container">
     <header>
       <h3 class="heading">{title}</h3>
@@ -20,7 +24,17 @@ const { title, description } = Astro.props;
 <style lang="scss">
   @use "../styles/tokens/tokens" as t;
 
+  article {
+    :global(.circle-link-container) {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      transform: translate(25%, 25%);
+    }
+  }
+
   .image-container {
+    position: relative;
     min-height: 20rem;
     margin-bottom: 2rem;
     border-radius: t.$br-small t.$br-large t.$br-small t.$br-large;

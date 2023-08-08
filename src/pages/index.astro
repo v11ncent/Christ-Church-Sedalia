@@ -6,7 +6,6 @@ import HeroBanner from "../layouts/HeroBanner.astro";
 import MaxWidthContainer from "../components/MaxWidthContainer.astro";
 import Section from "../layouts/Section.astro";
 import SectionHeader from "../components/SectionHeader.astro";
-import ScrollingBanner from "../components/ScrollingBanner.astro";
 import Link from "../components/Link.astro";
 import Carousel from "../layouts/Carousel.astro";
 import Dropdown from "../components/Dropdown.astro";
@@ -14,8 +13,26 @@ import Event from "../components/Event.astro";
 import Footer from "../layouts/Footer.astro";
 import missionImageOne from "../assets/our-mission-1.png";
 import missionImageTwo from "../assets/our-mission-2.png";
+import Watermark from "../components/Watermark.astro";
+
+const pageVariant = "landing";
 
 const carouselItems = [
+  {
+    title: "Video",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla eget massa sagittis ultricies",
+  },
+  {
+    title: "Video",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla eget massa sagittis ultricies",
+  },
+  {
+    title: "Video",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla eget massa sagittis ultricies",
+  },
   {
     title: "Video",
     description:
@@ -65,7 +82,7 @@ const carouselItems = [
       <Link variant="primary" to="/bible-study" text="Bible study" />
       <Link variant="secondary" to="/our-mission" text="Our mission" />
     </HeroBanner>
-    <Section id="our-mission">
+    <Section variant="landing" id="our-mission">
       <MaxWidthContainer>
         <div class="container center">
           <div class="text-container">
@@ -90,7 +107,11 @@ const carouselItems = [
               cursus turpis, eu cursus nulla eleifend sed. Praesent quis ligula
               ut sapien molestie eleifend et quis mi.
             </p>
-            <Link variant="tertiary" to="/" text="Read more about us" />
+            <Link
+              variant="tertiary"
+              to="/our-mission"
+              text="Read more about us"
+            />
           </div>
           <div class="image-container">
             <Image
@@ -129,7 +150,7 @@ const carouselItems = [
         </MaxWidthContainer>
       </div>
     </Section>
-    <Section id="bible-study">
+    <Section variant="landing" id="bible-study">
       <MaxWidthContainer>
         <div class="container">
           <div class="text-container">
@@ -178,6 +199,7 @@ const carouselItems = [
           </div>
         </div>
       </MaxWidthContainer>
+      <Watermark />
     </Section>
     <Section variant="paper" id="events">
       <MaxWidthContainer>
@@ -283,6 +305,7 @@ const carouselItems = [
 
     .image-container {
       min-height: 21rem;
+      perspective: 1000px;
 
       @media (min-width: t.$bp-desktop) {
         display: grid;
@@ -291,7 +314,7 @@ const carouselItems = [
       }
 
       @media (min-width: $bp-two-images) {
-        max-height: 28.5417rem;
+        max-height: 28.5rem; /* Magic number */
       }
     }
 
@@ -300,13 +323,15 @@ const carouselItems = [
       height: 100%;
       object-fit: cover;
       border-radius: t.$br-main;
-      border: 0.25rem solid t.$clr-tan;
+      // border: 0.25rem solid t.$clr-tan;
     }
 
     .image-container img.small {
       grid-column: 1 / span 3;
       grid-row: 3;
       z-index: 2;
+      transform: translate3d(0, -25%, 100px);
+      box-shadow: t.$s-main;
 
       @media (max-width: $bp-two-images) {
         display: none;
@@ -316,6 +341,7 @@ const carouselItems = [
     .image-container img.large {
       grid-column: 2 / -1;
       grid-row: 1 / -1;
+      box-shadow: t.$s-main;
     }
   }
 
@@ -347,6 +373,15 @@ const carouselItems = [
   }
 
   :global(section#bible-study) {
+    position: relative;
+
+    :global(.watermark-container) {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform: translate(-25%, 35%);
+    }
+
     .container {
       width: 100%;
     }
@@ -474,7 +509,7 @@ const carouselItems = [
         left: 50%;
         width: 40rem;
         height: 40rem;
-        box-shadow: 0rem 0.25rem 1.5625rem 0rem rgba(52, 52, 52, 0.4);
+        box-shadow: t.$s-main;
         background: center / cover url("../assets/paper-background.png")
           t.$clr-black;
         transform: translate(-50%, -50%);

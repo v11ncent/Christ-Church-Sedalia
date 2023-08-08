@@ -1,14 +1,20 @@
 ---
 interface Props {
-  variant?: "paper";
+  variant?: "landing" | "paper" | "generic";
   id?: string;
 }
-const { variant = "", id } = Astro.props;
+const { variant = "generic", id } = Astro.props;
 ---
 
 {
   () => {
-    if (variant === "paper") {
+    if (variant === "landing") {
+      return (
+        <section id={id} class="landing">
+          <slot />
+        </section>
+      );
+    } else if (variant === "paper") {
       return (
         <section id={id} class="paper">
           <slot />
@@ -27,6 +33,7 @@ const { variant = "", id } = Astro.props;
 <style lang="scss">
   @use "../styles/tokens/tokens" as t;
 
+  .landing,
   .paper {
     padding: t.$pd-section;
   }

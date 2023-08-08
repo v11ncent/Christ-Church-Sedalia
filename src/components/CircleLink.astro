@@ -1,0 +1,39 @@
+---
+interface Props {
+  to: string;
+  text: string;
+}
+
+const { to, text } = Astro.props;
+---
+
+<a href={to} class="circle-link-container">
+  <div class="circle-link">
+    {text}
+  </div>
+</a>
+
+<style lang="scss">
+  @use "../styles/tokens/tokens" as t;
+
+  .circle-link-container {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    background: center / cover url("../assets/paper-background.png")
+      t.$clr-black;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: t.$s-main;
+  }
+
+  .circle-link {
+    font-size: 0.75rem;
+    font-family: t.$ff-poppy;
+    color: t.$clr-tan;
+    line-height: 1;
+    text-decoration: none;
+  }
+</style>
