@@ -1,21 +1,25 @@
+---
+import MaxWidthContainer from "./MaxWidthContainer.astro";
+---
+
 <div class="image-container">
-  <div class="inner">
-    <slot />
-  </div>
+  <MaxWidthContainer>
+    <div class="inner">
+      <slot />
+    </div>
+  </MaxWidthContainer>
 </div>
 
 <style lang="scss">
   @use "../styles/tokens/tokens" as t;
 
   .image-container {
+    width: t.$w-inner-page-popouts;
     margin: 0 auto;
-    max-width: fit-content;
 
     .inner {
       position: relative;
-      max-width: 55rem;
-      max-height: 30rem;
-      margin: 0 t.$pd-inline;
+      width: t.$w-inner-page-popouts;
       box-shadow: 2px 1px 11px 0px rgba(0, 0, 0, 0.15);
       border-radius: 0.625rem;
 
