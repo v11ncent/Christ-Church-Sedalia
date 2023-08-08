@@ -34,9 +34,9 @@ const { items } = Astro.props;
   const swiper = new Swiper(".swiper", {
     modules: [Navigation, Autoplay],
     loop: true,
-    // autoplay: {
-    //   delay: 3000,
-    // },
+    autoplay: {
+      delay: 3000,
+    },
     breakpoints: {
       320: {
         slidesPerView: 1.1,

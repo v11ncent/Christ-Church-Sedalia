@@ -1,6 +1,28 @@
-<div class="max-width">
-  <slot />
-</div>
+---
+interface Props {
+  variant?: "landing";
+}
+
+const { variant = "generic" } = Astro.props;
+---
+
+{
+  (() => {
+    if (variant === "landing") {
+      return (
+        <div class="max-width landing">
+          <slot />
+        </div>
+      );
+    } else {
+      return (
+        <div class="max-width generic">
+          <slot />
+        </div>
+      );
+    }
+  })()
+}
 
 <style lang="scss">
   @use "../styles/tokens/tokens" as t;
@@ -8,8 +30,12 @@
   .max-width {
     margin: auto;
 
-    @media (min-width: t.$bp-desktop) {
-      width: t.$w-max-width-components;
+    &.landing {
+      width: t.$w-max-width-components--landing;
+    }
+
+    &.generic {
+      width: t.$w-max-width-components--generic;
     }
   }
 </style>

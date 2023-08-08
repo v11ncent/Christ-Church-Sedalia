@@ -83,7 +83,7 @@ const carouselItems = [
       <Link variant="secondary" to="/our-mission" text="Our mission" />
     </HeroBanner>
     <Section variant="landing" id="our-mission">
-      <MaxWidthContainer>
+      <MaxWidthContainer variant={pageVariant}>
         <div class="container center">
           <div class="text-container">
             <SectionHeader>
@@ -130,7 +130,7 @@ const carouselItems = [
     </Section>
     <Section variant="paper" id="media-hub">
       <div class="no-overflow">
-        <MaxWidthContainer>
+        <MaxWidthContainer variant={pageVariant}>
           <div class="text-container">
             <SectionHeader variant="inverted">
               <h2>Media Hub</h2>
@@ -151,7 +151,7 @@ const carouselItems = [
       </div>
     </Section>
     <Section variant="landing" id="bible-study">
-      <MaxWidthContainer>
+      <MaxWidthContainer variant={pageVariant}>
         <div class="container">
           <div class="text-container">
             <SectionHeader>
@@ -202,7 +202,7 @@ const carouselItems = [
       <Watermark />
     </Section>
     <Section variant="paper" id="events">
-      <MaxWidthContainer>
+      <MaxWidthContainer variant={pageVariant}>
         <div class="container center">
           <div class="text-container">
             <SectionHeader variant="inverted">
@@ -233,7 +233,7 @@ const carouselItems = [
       </MaxWidthContainer>
     </Section>
     <section id="join">
-      <MaxWidthContainer>
+      <MaxWidthContainer variant={pageVariant}>
         <div class="container">
           <div class="text-container">
             <SectionHeader variant="no-decoration">
@@ -374,13 +374,6 @@ const carouselItems = [
 
   :global(section#bible-study) {
     position: relative;
-
-    :global(.watermark-container) {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      transform: translate(-25%, 35%);
-    }
 
     .container {
       width: 100%;
