@@ -10,9 +10,11 @@ import ContactForm from "./ContactForm.astro";
 interface Props {
   heroBannerHeading: string;
   contactFormHeading: string;
+  contactFormDescription?: string;
 }
 
-const { heroBannerHeading, contactFormHeading } = Astro.props;
+const { heroBannerHeading, contactFormHeading, contactFormDescription } =
+  Astro.props;
 ---
 
 <>
@@ -21,7 +23,10 @@ const { heroBannerHeading, contactFormHeading } = Astro.props;
     <HeroBanner variant="inner" id="hero" heading={heroBannerHeading} />
     <slot />
     <Section id="contact">
-      <ContactForm heading={contactFormHeading} />
+      <ContactForm
+        heading={contactFormHeading}
+        description={contactFormDescription}
+      />
     </Section>
     <Watermark />
   </main>

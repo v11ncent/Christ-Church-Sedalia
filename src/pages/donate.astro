@@ -1,24 +1,21 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../layouts/BaseLayout.astro";
 import MaxWidthContainer from "../components/MaxWidthContainer.astro";
 import Section from "../layouts/Section.astro";
 import SectionHeader from "../components/SectionHeader.astro";
-import image from "../assets/hero.png";
-import InnerPageBannerImage from "../components/InnerPageBannerImage.astro";
 import InnerPageLayout from "../layouts/InnerPageLayout.astro";
 ---
 
-<Layout title="Our Mission">
+<Layout title="Donate">
   <InnerPageLayout
-    heroBannerHeading="Our Mission"
-    contactFormHeading="Like to know more?"
+    heroBannerHeading="Donate to help us"
+    contactFormHeading="Get in touch to donate"
   >
     <Section>
       <MaxWidthContainer>
         <div class="container">
           <SectionHeader variant="inner">
-            <h2>What we believe in</h2>
+            <h2>How your donation will help</h2>
           </SectionHeader>
           <p class="space">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
@@ -30,24 +27,6 @@ import InnerPageLayout from "../layouts/InnerPageLayout.astro";
             eleifend sed. Praesent quis ligula ut sapien molestie eleifend et
             quis mi.
           </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
-            nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
-            cursus turpis, eu cursus nulla eleifend sed. Praesent quis ligula ut
-            sapien molestie eleifend et quis mi.
-          </p>
-        </div>
-      </MaxWidthContainer>
-    </Section>
-    <InnerPageBannerImage>
-      <Image src={image} alt="" class="image" />
-    </InnerPageBannerImage>
-    <Section>
-      <MaxWidthContainer>
-        <div class="container">
-          <SectionHeader variant="inner">
-            <h2>How we accomplish it</h2>
-          </SectionHeader>
           <p class="space">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
             nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
