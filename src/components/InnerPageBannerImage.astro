@@ -1,12 +1,50 @@
----
-export interface Props {
-  text: string;
-}
-const { text } = Astro.props;
----
-
-<div></div>
+<div class="image-container">
+  <div class="inner">
+    <slot />
+  </div>
+</div>
 
 <style lang="scss">
   @use "../styles/tokens/tokens" as t;
+
+  .image-container {
+    margin: 0 auto;
+    max-width: fit-content;
+
+    .inner {
+      position: relative;
+      max-width: 55rem;
+      max-height: 30rem;
+      margin: 0 t.$pd-inline;
+      box-shadow: 2px 1px 11px 0px rgba(0, 0, 0, 0.15);
+      border-radius: 0.625rem;
+
+      &::before,
+      &::after {
+        position: absolute;
+        width: clamp(2rem, 3vw, 4rem);
+        height: clamp(2rem, 1rem + 3vw, 4rem);
+        content: "";
+        background: center / cover no-repeat url("../assets/frame.png");
+      }
+
+      &::before {
+        top: 0;
+        left: 0;
+        transform: translate(-25%, -25%);
+      }
+
+      &::after {
+        bottom: 0;
+        right: 0;
+        transform: translate(25%, 25%) rotate(180deg);
+      }
+    }
+
+    :global(img) {
+      border-radius: inherit;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
 </style>

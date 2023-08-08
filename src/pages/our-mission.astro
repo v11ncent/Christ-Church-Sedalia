@@ -10,6 +10,7 @@ import HeroBanner from "../layouts/HeroBanner.astro";
 import Watermark from "../components/Watermark.astro";
 import image from "../assets/hero.png";
 import ContactForm from "../layouts/ContactForm.astro";
+import InnerPageBannerImage from "../components/InnerPageBannerImage.astro";
 ---
 
 <Layout title="Our Mission">
@@ -41,11 +42,9 @@ import ContactForm from "../layouts/ContactForm.astro";
         </div>
       </MaxWidthContainer>
     </Section>
-    <div class="image-container">
-      <div class="inner">
-        <Image src={image} alt="" class="image" />
-      </div>
-    </div>
+    <InnerPageBannerImage>
+      <Image src={image} alt="" class="image" />
+    </InnerPageBannerImage>
     <Section>
       <MaxWidthContainer>
         <div class="container">
@@ -103,46 +102,5 @@ import ContactForm from "../layouts/ContactForm.astro";
 
   .space {
     margin-bottom: 0.5rem;
-  }
-
-  .image-container {
-    margin: 0 auto;
-    max-width: fit-content;
-
-    .inner {
-      position: relative;
-      max-width: 55rem;
-      max-height: 30rem;
-      margin: 0 t.$pd-inline;
-      box-shadow: 2px 1px 11px 0px rgba(0, 0, 0, 0.15);
-      border-radius: 0.625rem;
-
-      &::before,
-      &::after {
-        position: absolute;
-        width: clamp(2rem, 3vw, 4rem);
-        height: clamp(2rem, 1rem + 3vw, 4rem);
-        content: "";
-        background: center / cover no-repeat url("../assets/frame.png");
-      }
-
-      &::before {
-        top: 0;
-        left: 0;
-        transform: translate(-25%, -25%);
-      }
-
-      &::after {
-        bottom: 0;
-        right: 0;
-        transform: translate(25%, 25%) rotate(180deg);
-      }
-    }
-
-    img {
-      border-radius: inherit;
-      height: 100%;
-      object-fit: cover;
-    }
   }
 </style>
