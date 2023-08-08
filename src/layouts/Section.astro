@@ -1,6 +1,6 @@
 ---
 interface Props {
-  variant?: "paper" | "paper-with-slope" | string;
+  variant?: "paper";
   id?: string;
 }
 const { variant = "", id } = Astro.props;
@@ -27,8 +27,12 @@ const { variant = "", id } = Astro.props;
 <style lang="scss">
   @use "../styles/tokens/tokens" as t;
 
-  section {
+  .paper {
     padding: t.$pd-section;
+  }
+
+  .generic {
+    padding: t.$pd-section-generic;
   }
 
   .paper {

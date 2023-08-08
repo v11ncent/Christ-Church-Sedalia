@@ -2,3 +2,4 @@ $inline: clamp(1rem, 3vw, 5rem);
 $block: clamp(5rem, 10vw, 10rem);
 
 $section: $block $inline;
+$section-generic: clamp(2rem, 3vw, 5rem) $inline;

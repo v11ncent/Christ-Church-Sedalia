@@ -12,6 +12,7 @@ import Dropdown from "../components/Dropdown.astro";
 import Event from "../components/Event.astro";
 import Footer from "../layouts/Footer.astro";
 import HeroBanner from "../layouts/HeroBanner.astro";
+import image from "../assets/hero.png";
 ---
 
 <Layout title="Our Mission">
@@ -42,8 +43,12 @@ import HeroBanner from "../layouts/HeroBanner.astro";
           </p>
         </div>
       </MaxWidthContainer>
-      <img src="" alt="" />
     </Section>
+    <div class="image-container">
+      <div class="inner">
+        <Image src={image} alt="" class="image" />
+      </div>
+    </div>
     <Section>
       <MaxWidthContainer>
         <div class="container">
@@ -91,5 +96,47 @@ import HeroBanner from "../layouts/HeroBanner.astro";
 
   .space {
     margin-bottom: 0.5rem;
+  }
+
+  .image-container {
+    margin: 0 auto;
+    max-width: fit-content;
+
+    .inner {
+      position: relative;
+      max-width: 55rem;
+      max-height: 30rem;
+      margin: 0 t.$pd-inline;
+      box-shadow: 2px 1px 11px 0px rgba(0, 0, 0, 0.15);
+      border-radius: 0.625rem;
+
+      &::before,
+      &::after {
+        position: absolute;
+        width: 4rem;
+        height: 4rem;
+        content: "";
+        background: center / cover no-repeat url("../assets/frame.png");
+      }
+
+      &::before {
+        top: 0;
+        left: 0;
+        transform: translate(-25%, -25%);
+      }
+
+      &::after {
+        bottom: 0;
+        right: 0;
+        transform: translate(25%, 25%) rotate(180deg);
+      }
+    }
+
+    img {
+      border-radius: inherit;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 </style>
