@@ -494,15 +494,16 @@ const carouselItems = [
       .thorns {
         position: absolute;
         content: "";
+        top: 50%;
+        left: 50%;
         border-radius: 100%;
+        transform: translate(-50%, -50%);
       }
 
       .circle {
         z-index: 2;
-        top: 50%;
-        left: 50%;
-        width: 40rem;
-        height: 40rem;
+        width: clamp(32rem, 32rem + 6vw, 40rem);
+        height: clamp(32rem, 32rem + 6vw, 40rem);
         box-shadow: t.$s-main;
         background: center / cover url("../assets/paper-background.png")
           t.$clr-black;
@@ -511,13 +512,10 @@ const carouselItems = [
 
       .thorns {
         z-index: 1;
-        top: 50%;
-        left: 50%;
-        width: 50rem;
-        height: 50rem;
         background: center / contain no-repeat url("../assets/thorns.png");
         border-radius: 100%;
-        transform: translate(-50%, -50%);
+        width: clamp(42rem, 42rem + 6vw, 50rem);
+        height: clamp(42rem, 42rem + 6vw, 50rem);
       }
     }
   }
