@@ -21,22 +21,54 @@ export default defineConfig({
   schema: {
     collections: [
       {
-        name: "post",
-        label: "Posts",
-        path: "/src/pages/posts",
+        name: "videos",
+        label: "Videos",
+        path: "src/content/videos",
+        format: "json",
+        fields: [
+          {
+            type: "image",
+            name: "image",
+            label: "Image",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            required: true,
+          },
+          {
+            type: "rich-text",
+            name: "description",
+            label: "Description",
+            required: true,
+          },
+        ],
+      },
+      {
+        name: "events",
+        label: "Events",
+        path: "src/content/events",
+        format: "json",
         fields: [
           {
             type: "string",
             name: "title",
             label: "Title",
-            isTitle: true,
             required: true,
           },
           {
-            type: "rich-text",
-            name: "body",
-            label: "Body",
-            isBody: true,
+            type: "string",
+            name: "description",
+            label: "Description",
+            required: true,
+          },
+          {
+            type: "datetime",
+            name: "date",
+            label: "Date",
+            required: true,
           },
         ],
       },
