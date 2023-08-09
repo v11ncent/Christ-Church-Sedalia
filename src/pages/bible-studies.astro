@@ -4,31 +4,27 @@ import Layout from "../layouts/BaseLayout.astro";
 import MaxWidthContainer from "../components/MaxWidthContainer.astro";
 import Section from "../layouts/Section.astro";
 import SectionHeader from "../components/SectionHeader.astro";
-import image from "../assets/hero.png";
-import InnerPageBannerImage from "../components/InnerPageBannerImage.astro";
 import InnerPageLayout from "../layouts/InnerPageLayout.astro";
+import InnerPageBannerImage from "../components/InnerPageBannerImage.astro";
+import image from "../assets/hero.png";
 ---
 
-<Layout title="Our Mission">
+<Layout title="Donate">
   <InnerPageLayout
-    heroBannerHeading="Our Mission"
-    contactFormHeading="Like to know more?"
+    heroBannerHeading="Contact us"
+    contactFormHeading="Join our bible study"
   >
     <Section>
       <MaxWidthContainer>
         <div class="container">
           <SectionHeader variant="inner">
-            <h2>What we believe in</h2>
+            <h2>Our Bible Studies</h2>
           </SectionHeader>
           <p class="space">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
             nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
             cursus turpis, eu cursus nulla eleifend sed. Praesent quis ligula ut
-            sapien molestie eleifend et quis mi. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Fusce a nulla eget massa sagittis
-            ultricies ut at purus. Mauris iaculis cursus turpis, eu cursus nulla
-            eleifend sed. Praesent quis ligula ut sapien molestie eleifend et
-            quis mi.
+            sapien molestie eleifend et quis mi.
           </p>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
@@ -37,18 +33,15 @@ import InnerPageLayout from "../layouts/InnerPageLayout.astro";
             sapien molestie eleifend et quis mi.
           </p>
         </div>
-        <InnerPageBannerImage>
-          <Image src={image} alt="" class="image" />
-        </InnerPageBannerImage>
       </MaxWidthContainer>
     </Section>
     <Section>
       <MaxWidthContainer>
         <div class="container">
           <SectionHeader variant="inner">
-            <h2>How we accomplish it</h2>
+            <h2>1. Child Bible Studies</h2>
           </SectionHeader>
-          <p class="space">
+          <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
             nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
             cursus turpis, eu cursus nulla eleifend sed. Praesent quis ligula ut
@@ -58,14 +51,55 @@ import InnerPageLayout from "../layouts/InnerPageLayout.astro";
             eleifend sed. Praesent quis ligula ut sapien molestie eleifend et
             quis mi.
           </p>
+        </div>
+      </MaxWidthContainer>
+      <InnerPageBannerImage>
+        <Image src={image} alt="" class="image" />
+      </InnerPageBannerImage>
+    </Section>
+    <Section>
+      <MaxWidthContainer>
+        <div class="container">
+          <SectionHeader variant="inner">
+            <h2>2. Young Adult Bible Studies</h2>
+          </SectionHeader>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
             nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
             cursus turpis, eu cursus nulla eleifend sed. Praesent quis ligula ut
-            sapien molestie eleifend et quis mi.
+            sapien molestie eleifend et quis mi. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Fusce a nulla eget massa sagittis
+            ultricies ut at purus. Mauris iaculis cursus turpis, eu cursus nulla
+            eleifend sed. Praesent quis ligula ut sapien molestie eleifend et
+            quis mi.
           </p>
         </div>
       </MaxWidthContainer>
+      <InnerPageBannerImage>
+        <Image src={image} alt="" class="image" />
+      </InnerPageBannerImage>
+    </Section>
+    <Section>
+      <MaxWidthContainer>
+        <div class="container">
+          <SectionHeader variant="inner">
+            <h2>3. Adult Bible Studies</h2>
+          </SectionHeader>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
+            nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
+            cursus turpis, eu cursus nulla eleifend sed. Praesent quis ligula ut
+            sapien molestie eleifend et quis mi. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Fusce a nulla eget massa sagittis
+            ultricies ut at purus. Mauris iaculis cursus turpis, eu cursus nulla
+            eleifend sed. Praesent quis ligula ut sapien molestie eleifend et
+            quis mi.
+          </p>
+        </div>
+      </MaxWidthContainer>
+      <InnerPageBannerImage>
+        <Image src={image} alt="" class="image" />
+      </InnerPageBannerImage>
     </Section>
   </InnerPageLayout>
 </Layout>
@@ -76,7 +110,11 @@ import InnerPageLayout from "../layouts/InnerPageLayout.astro";
   /* Would be better to make separate variants, but quick solution and
     site isn't that big */
 
-  :global(section:nth-of-type(2)) {
+  :global(
+      section:nth-of-type(2),
+      section:nth-of-type(3),
+      section:nth-of-type(4)
+    ) {
     padding-bottom: 0;
   }
 </style>
