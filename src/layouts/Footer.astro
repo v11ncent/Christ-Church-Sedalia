@@ -1,10 +1,16 @@
 ---
 import MaxWidthContainer from "../components/MaxWidthContainer.astro";
 import logo from "../assets/logo.svg";
+
+interface Props {
+  variant?: "landing";
+}
+
+const { variant = "generic" } = Astro.props;
 ---
 
 <footer>
-  <MaxWidthContainer>
+  <MaxWidthContainer variant={variant}>
     <div class="container">
       <div class="intro">
         <header class="intro-header">
@@ -39,7 +45,7 @@ import logo from "../assets/logo.svg";
 
   footer {
     position: relative;
-    padding: 2rem t.$pd-inline;
+    padding: clamp(2rem, 3vw, 4rem) t.$pd-inline;
     background: center / cover url("../assets/paper-background.png") t.$clr-tan;
 
     &::before {

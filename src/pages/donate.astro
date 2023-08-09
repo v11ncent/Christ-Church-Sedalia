@@ -21,26 +21,6 @@ import InnerPageLayout from "../layouts/InnerPageLayout.astro";
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
             nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
             cursus turpis, eu cursus nulla eleifend sed. Praesent quis ligula ut
-            sapien molestie eleifend et quis mi. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Fusce a nulla eget massa sagittis
-            ultricies ut at purus. Mauris iaculis cursus turpis, eu cursus nulla
-            eleifend sed. Praesent quis ligula ut sapien molestie eleifend et
-            quis mi.
-          </p>
-          <p class="space">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
-            nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
-            cursus turpis, eu cursus nulla eleifend sed. Praesent quis ligula ut
-            sapien molestie eleifend et quis mi. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Fusce a nulla eget massa sagittis
-            ultricies ut at purus. Mauris iaculis cursus turpis, eu cursus nulla
-            eleifend sed. Praesent quis ligula ut sapien molestie eleifend et
-            quis mi.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
-            nulla eget massa sagittis ultricies ut at purus. Mauris iaculis
-            cursus turpis, eu cursus nulla eleifend sed. Praesent quis ligula ut
             sapien molestie eleifend et quis mi.
           </p>
         </div>
@@ -48,3 +28,13 @@ import InnerPageLayout from "../layouts/InnerPageLayout.astro";
     </Section>
   </InnerPageLayout>
 </Layout>
+
+<style lang="scss">
+  :global(.section-header) {
+    margin-inline: auto;
+  }
+
+  p {
+    text-align: center;
+  }
+</style>

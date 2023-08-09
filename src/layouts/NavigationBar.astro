@@ -4,11 +4,17 @@ import hamburger from "../assets/hamburger.svg";
 import logo from "../assets/logo.svg";
 
 const currentPath = Astro.url.pathname;
+
+interface Props {
+  variant?: "landing";
+}
+
+const { variant = "generic" } = Astro.props;
 ---
 
 <header id="main-header">
   <span class="sr-only">Mobile navigation menu</span>
-  <MaxWidthContainer>
+  <MaxWidthContainer variant={variant}>
     <nav id="main-navigation">
       <div class="logo-container">
         <a href="/">

@@ -88,13 +88,15 @@ const { variant, id = "", heading, description } = Astro.props;
 
     h1 {
       text-transform: capitalize;
-      font-size: clamp(2rem, 1rem + 3vw, 2.5rem);
+      font-size: clamp(2.125rem, 1rem + 3vw, 3rem);
       font-family: t.$ff-yeseva;
     }
 
     p {
+      max-width: 100%;
       margin-bottom: 1.5rem;
       line-height: 1.5;
+      font-size: clamp(1rem, 1.125vw, 1.125rem);
     }
 
     .links {
