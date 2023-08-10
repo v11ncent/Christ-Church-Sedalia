@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 import Layout from "../layouts/BaseLayout.astro";
 import NavigationBar from "../layouts/NavigationBar.astro";
 import HeroBanner from "../layouts/HeroBanner.astro";
@@ -7,71 +8,21 @@ import MaxWidthContainer from "../components/MaxWidthContainer.astro";
 import Section from "../layouts/Section.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import Link from "../components/Link.astro";
-import Carousel from "../layouts/Carousel.astro";
+import VideoCarousel from "../layouts/VideoCarousel.astro";
 import Dropdown from "../components/Dropdown.astro";
 import Event from "../components/Event.astro";
 import Footer from "../layouts/Footer.astro";
+import Watermark from "../components/Watermark.astro";
 import missionImageOne from "../assets/our-mission-1.png";
 import missionImageTwo from "../assets/our-mission-2.png";
-import Watermark from "../components/Watermark.astro";
 
 const pageVariant = "landing";
 
-const carouselItems = [
-  {
-    title: "Video",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla eget massa sagittis ultricies",
-  },
-  {
-    title: "Video",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla eget massa sagittis ultricies",
-  },
-  {
-    title: "Video",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla eget massa sagittis ultricies",
-  },
-  {
-    title: "Video",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla eget massa sagittis ultricies",
-  },
-  {
-    title: "Video",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla eget massa sagittis ultricies",
-  },
-  {
-    title: "Video",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla eget massa sagittis ultricies",
-  },
-  {
-    title: "Video",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla eget massa sagittis ultricies",
-  },
-  {
-    title: "Video",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla eget massa sagittis ultricies",
-  },
-  {
-    title: "Video",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla eget massa sagittis ultricies",
-  },
-  {
-    title: "Video",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nulla eget massa sagittis ultricies",
-  },
-];
+const videos = await getCollection("videos");
+console.log(videos);
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Christ Church Sedalia">
   <NavigationBar variant="landing" />
   <main>
     <HeroBanner
@@ -114,7 +65,7 @@ const carouselItems = [
             />
           </div>
           <div class="image-container">
-            <Image
+            <!-- <Image
               src={missionImageTwo}
               alt="Image of a church during sunset."
               class="small"
@@ -123,7 +74,7 @@ const carouselItems = [
               src={missionImageOne}
               alt="Image of a church against a blue sky."
               class="large"
-            />
+            /> -->
           </div>
         </div>
       </MaxWidthContainer>
@@ -146,7 +97,7 @@ const carouselItems = [
               <Link variant="no-decoration" to="/" text="Our Facebook page" />
             </div>
           </div>
-          <Carousel items={carouselItems} />
+          <VideoCarousel items={videos} />
         </MaxWidthContainer>
       </div>
     </Section>

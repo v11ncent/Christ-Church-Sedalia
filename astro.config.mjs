@@ -5,6 +5,9 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: "http://localhost:3001",
+  experimental: {
+    assets: true,
+  },
   integrations: [
     partytown(),
     sitemap({
@@ -12,9 +15,6 @@ export default defineConfig({
       lastmod: new Date(),
     }),
   ],
-  experimental: {
-    assets: true,
-  },
   build: {
     inlineStylesheets: "always",
   },

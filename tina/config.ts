@@ -25,6 +25,15 @@ export default defineConfig({
         label: "Videos",
         path: "src/content/videos",
         format: "json",
+        ui: {
+          // https://tina.io/docs/extending-tina/filename-customization/
+          filename: {
+            readonly: true,
+            slugify: (values) => {
+              return `${values?.title?.toLowerCase().replace(/ /g, "-")}`;
+            },
+          },
+        },
         fields: [
           {
             type: "image",
@@ -39,9 +48,22 @@ export default defineConfig({
             required: true,
           },
           {
-            type: "rich-text",
+            type: "string",
             name: "description",
             label: "Description",
+            required: true,
+            ui: {
+              validate: (value) => {
+                if (value?.length > 15) {
+                  return "Description cannot be more than 15 characters long";
+                }
+              },
+            },
+          },
+          {
+            type: "string",
+            name: "link",
+            label: "Link",
             required: true,
           },
         ],
@@ -51,6 +73,14 @@ export default defineConfig({
         label: "Events",
         path: "src/content/events",
         format: "json",
+        ui: {
+          filename: {
+            readonly: true,
+            slugify: (values) => {
+              return `${values?.title?.toLowerCase().replace(/ /g, "-")}`;
+            },
+          },
+        },
         fields: [
           {
             type: "string",
@@ -63,6 +93,13 @@ export default defineConfig({
             name: "description",
             label: "Description",
             required: true,
+            ui: {
+              validate: (value) => {
+                if (value?.length > 15) {
+                  return "Description cannot be more than 15 characters long";
+                }
+              },
+            },
           },
           {
             type: "datetime",

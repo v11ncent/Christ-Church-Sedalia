@@ -1,8 +1,8 @@
 ---
-import CarouselItem from "../components/CarouselItem.astro";
+import VideoCarouselItem from "../components/VideoCarouselItem.astro";
 
 interface Props {
-  items: { title: string; description: string }[];
+  items: { id: string; collection: string; data: any }[];
 }
 
 const { items } = Astro.props;
@@ -14,7 +14,12 @@ const { items } = Astro.props;
       {
         items.map((item) => (
           <div class="swiper-slide">
-            <CarouselItem title={item.title} description={item.description} />
+            <VideoCarouselItem
+              image={item.data.image}
+              title={item.data.title}
+              description={item.data.description}
+              link={item.data.link}
+            />
           </div>
         ))
       }
