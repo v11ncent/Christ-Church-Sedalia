@@ -1,4 +1,4 @@
-<!-- ---
+---
 import { getCollection } from "astro:content";
 import Event from "../components/Event.astro";
 
@@ -12,15 +12,17 @@ console.log(events);
 <div class="event-container">
   <ul>
     {
-      events.map((event) => (
-        <Event
-          image={video.data.image}
-          title={video.data.title}
-          description={video.data.description}
-          link={video.data.link}
-          date={video.data.date}
-        />
-      ))
+      events
+        ?.slice(0, 3)
+        .map((event) => (
+          <Event
+            image={event.data.image}
+            title={event.data.title}
+            description={event.data.description}
+            link={event.data.link}
+            date={event.data.date}
+          />
+        ))
     }
   </ul>
 </div>
@@ -32,9 +34,8 @@ console.log(events);
     ul {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
-      width: 100%;
-      height: 100%;
+      gap: 3rem;
+      margin-top: 4rem;
 
       li {
         width: 100%;
@@ -45,4 +46,4 @@ console.log(events);
       }
     }
   }
-</style> -->
+</style>

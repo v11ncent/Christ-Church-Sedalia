@@ -9,6 +9,7 @@ import SectionHeader from "../components/SectionHeader.astro";
 import Link from "../components/Link.astro";
 import Videos from "../layouts/Videos.astro";
 import Dropdown from "../components/Dropdown.astro";
+import Events from "../layouts/Events.astro";
 import Event from "../components/Event.astro";
 import Footer from "../layouts/Footer.astro";
 import Watermark from "../components/Watermark.astro";
@@ -163,19 +164,7 @@ const pageVariant = "landing";
             </p>
             <Link variant="tertiary" to="/events" text="View all events" />
           </div>
-          <div class="event-container">
-            <ul>
-              <li>
-                <Event />
-              </li>
-              <li>
-                <Event />
-              </li>
-              <li>
-                <Event />
-              </li>
-            </ul>
-          </div>
+          <Events />
         </div>
       </MaxWidthContainer>
     </Section>
@@ -365,9 +354,6 @@ const pageVariant = "landing";
 
   :global(section#events) {
     .container {
-      display: flex;
-      flex-direction: column;
-      gap: 4rem;
       max-width: t.$w-container;
 
       @media (min-width: t.$bp-desktop) {
@@ -379,24 +365,6 @@ const pageVariant = "landing";
       p {
         color: t.$clr-grey;
         margin-bottom: 1.5rem;
-      }
-    }
-
-    .event-container {
-      ul {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        width: 100%;
-        height: 100%;
-
-        li {
-          width: 100%;
-        }
-
-        @media (min-width: t.$bp-desktop) {
-          flex-direction: row;
-        }
       }
     }
   }

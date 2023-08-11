@@ -25,15 +25,6 @@ export default defineConfig({
         label: "Videos",
         path: "src/content/videos",
         format: "json",
-        defaultItem: () => {
-          return {
-            image: "/tina-images/hero.png",
-            title: "New Video",
-            description: "Set a description.",
-            link: "https://www.facebook.com/people/Christ-Church-Sedalia/100091224970790/?mibextid=LQQJ4d",
-            date: new Date(),
-          };
-        },
         ui: {
           // https://tina.io/docs/extending-tina/filename-customization/
           filename: {
@@ -42,6 +33,15 @@ export default defineConfig({
               return `${values?.title?.toLowerCase().replace(/ /g, "-")}`;
             },
           },
+        },
+        defaultItem: () => {
+          return {
+            image: "/tina-images/hero.png",
+            title: "New Video",
+            description: "Set a description.",
+            link: "https://www.facebook.com/people/Christ-Church-Sedalia/100091224970790/?mibextid=LQQJ4d",
+            date: new Date(),
+          };
         },
         fields: [
           {
@@ -95,7 +95,22 @@ export default defineConfig({
             },
           },
         },
+        defaultItem: () => {
+          return {
+            image: "/tina-images/hero.png",
+            title: "New Event",
+            description: "Set a description.",
+            link: "https://www.facebook.com/people/Christ-Church-Sedalia/100091224970790/?mibextid=LQQJ4d",
+            date: new Date(),
+          };
+        },
         fields: [
+          {
+            type: "image",
+            name: "image",
+            label: "Image",
+            required: true,
+          },
           {
             type: "string",
             name: "title",
@@ -116,10 +131,15 @@ export default defineConfig({
             },
           },
           {
+            type: "string",
+            name: "link",
+            label: "Link",
+            required: true,
+          },
+          {
             type: "datetime",
             name: "date",
             label: "Date",
-            required: true,
           },
         ],
       },

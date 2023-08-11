@@ -11,7 +11,7 @@ const videos = (await getCollection("videos")).sort(
   <div class="swiper">
     <div class="swiper-wrapper">
       {
-        videos.map((video) => (
+        videos?.map((video) => (
           <div class="swiper-slide">
             <Video
               image={video.data.image}
