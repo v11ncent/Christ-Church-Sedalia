@@ -12,8 +12,8 @@ import Dropdown from "../components/Dropdown.astro";
 import Event from "../components/Event.astro";
 import Footer from "../layouts/Footer.astro";
 import Watermark from "../components/Watermark.astro";
-import missionImageOne from "../assets/our-mission-1.png";
-import missionImageTwo from "../assets/our-mission-2.png";
+import missionImageOne from "../assets/our-mission-1.webp";
+import missionImageTwo from "../assets/our-mission-2.webp";
 
 const pageVariant = "landing";
 ---
@@ -392,7 +392,7 @@ const pageVariant = "landing";
   section#join {
     padding: calc(t.$pd-block * 2.5) t.$pd-inline;
     overflow: hidden;
-    background: center / cover no-repeat url("../assets/join-background.png");
+    background: center / cover no-repeat url("../assets/join-background.webp");
 
     :global(.max-width) {
       display: flex;
@@ -455,14 +455,14 @@ const pageVariant = "landing";
         width: clamp(32rem, 32rem + 6vw, 40rem);
         height: clamp(32rem, 32rem + 6vw, 40rem);
         box-shadow: t.$s-main;
-        background: center / cover url("../assets/paper-background.png")
+        background: center / cover url("../assets/paper-background.webp")
           t.$clr-black;
         transform: translate(-50%, -50%);
       }
 
       .thorns {
         z-index: 1;
-        background: center / contain no-repeat url("../assets/thorns.png");
+        background: center / contain no-repeat url("../assets/thorns.webp");
         border-radius: 100%;
         width: clamp(42rem, 42rem + 6vw, 50rem);
         height: clamp(42rem, 42rem + 6vw, 50rem);

@@ -14,11 +14,15 @@ const { image, title, description, link } = Astro.props;
 ---
 
 <article>
-  <a href={link} target="_blank" rel="noopener noreferrer"></a>
+  <a
+    href={link}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Click to watch the video on Facebook"></a>
   <div class="image-container">
     <Image
       src={image}
-      width={420}
+      width={400}
       height={320}
       alt="Image that hopefully represents the media."
     />

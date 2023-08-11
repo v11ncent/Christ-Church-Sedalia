@@ -26,8 +26,12 @@ const videos = (await getCollection("videos")).sort(
     </div>
   </div>
   <div class="navigation-buttons">
-    <button class="previous-button"></button>
-    <button class="next-button"></button>
+    <button
+      class="previous-button"
+      aria-label="Click to move the slider back by one video"></button>
+    <button
+      class="next-button"
+      aria-label="Click to move the slider forward by one video"></button>
   </div>
 </div>
 
