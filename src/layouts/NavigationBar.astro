@@ -1,21 +1,15 @@
 ---
-import ScrollingBanner from "../components/ScrollingBanner.astro";
+import ScrollingNewsBanner from "../components/ScrollingNewsBanner.astro";
 import MaxWidthContainer from "../components/MaxWidthContainer.astro";
 import hamburger from "../assets/hamburger.svg";
 import logo from "../assets/logo.svg";
 
 const currentPath = Astro.url.pathname;
-
-interface Props {
-  variant?: "landing";
-}
-
-const { variant = "generic" } = Astro.props;
 ---
 
 <header id="main-header">
   <span class="sr-only">Mobile navigation menu</span>
-  <MaxWidthContainer variant={variant}>
+  <MaxWidthContainer variant="landing">
     <nav id="main-navigation">
       <div class="logo-container">
         <a href="/">
@@ -72,7 +66,7 @@ const { variant = "generic" } = Astro.props;
       </div>
     </nav>
   </MaxWidthContainer>
-  <ScrollingBanner
+  <ScrollingNewsBanner
     id="nav-banner"
     text="Service on Sundays starting 10:00 CST at 936 East Holley, MO."
   />
@@ -82,9 +76,7 @@ const { variant = "generic" } = Astro.props;
   const button = document.getElementById("hamburger");
   const list = document.querySelector("#main-navigation ul");
   const navBanner = document.getElementById("nav-banner");
-  const regularBanner = document.querySelector(
-    ".scrolling-banner:not(#nav-banner)"
-  );
+  const regularBanner = document.querySelector(".news-banner");
 
   if (button && list) {
     button.addEventListener("click", (event) => {

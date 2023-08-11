@@ -47,33 +47,29 @@ const { variant = "" } = Astro.props;
     font-size: t.$fs-heading;
     font-family: t.$ff-heading;
     text-transform: capitalize;
+    color: t.$clr-black;
 
-    &.decoration::after {
-      position: absolute;
-      content: "";
-      z-index: -1;
-      top: 50%;
-      right: 0;
-      transform: translate(75%, -50%);
-      width: 3rem;
-      height: 3rem;
-      background: center / 40% no-repeat url("../assets/cross-decoration.svg")
-        t.$clr-tan;
-      border-radius: 100%;
-    }
-
+    &.decoration::after,
     &.inverted::after {
       position: absolute;
       content: "";
-      z-index: -1;
       top: 50%;
       right: 0;
-      transform: translate(75%, -50%);
+      z-index: -1;
       width: 3rem;
       height: 3rem;
+      transform: translate(75%, -50%);
+      border-radius: 100%;
+    }
+
+    &.decoration::after {
+      background: center / 40% no-repeat url("../assets/cross-decoration.svg")
+        t.$clr-tan;
+    }
+
+    &.inverted::after {
       background: center / 40% no-repeat
         url("../assets/cross-decoration-inverted.svg") white;
-      border-radius: 100%;
     }
   }
 

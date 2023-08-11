@@ -1,16 +1,10 @@
 ---
 import MaxWidthContainer from "../components/MaxWidthContainer.astro";
 import logo from "../assets/logo.svg";
-
-interface Props {
-  variant?: "landing";
-}
-
-const { variant = "generic" } = Astro.props;
 ---
 
 <footer>
-  <MaxWidthContainer variant={variant}>
+  <MaxWidthContainer variant="landing">
     <div class="container">
       <div class="intro">
         <header class="intro-header">
