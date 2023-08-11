@@ -2,47 +2,75 @@
 import { getCollection } from "astro:content";
 import Event from "../components/Event.astro";
 
+/* 
+  Limited renders 3 events (for landing page)
+  Full renders 9 events
+*/
+
+interface Props {
+  variant?: "limited" | "full";
+}
+
+const { variant = "full" } = Astro.props;
+
 const events = (await getCollection("events")).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
-
-console.log(events);
 ---
 
-<div class="event-container">
-  <ul>
-    {
-      events
-        ?.slice(0, 3)
-        .map((event) => (
-          <Event
-            image={event.data.image}
-            title={event.data.title}
-            description={event.data.description}
-            link={event.data.link}
-            date={event.data.date}
-          />
-        ))
+{
+  () => {
+    if (variant === "full") {
+      return (
+        <div class="event-container">
+          <ul>
+            {events?.slice(0, 9).map((event) => (
+              <Event
+                image={event.data.image}
+                title={event.data.title}
+                description={event.data.description}
+                link={event.data.link}
+                date={event.data.date}
+              />
+            ))}
+          </ul>
+        </div>
+      );
+    } else {
+      return (
+        <div class="event-container">
+          <ul>
+            {events?.slice(0, 3).map((event) => (
+              <Event
+                image={event.data.image}
+                title={event.data.title}
+                description={event.data.description}
+                link={event.data.link}
+                date={event.data.date}
+              />
+            ))}
+          </ul>
+        </div>
+      );
     }
-  </ul>
-</div>
+  }
+}
 
 <style lang="scss">
   @use "../styles/tokens/tokens" as t;
 
   .event-container {
     ul {
-      display: flex;
-      flex-direction: column;
+      display: grid;
       gap: 3rem;
       margin-top: 4rem;
 
-      li {
-        width: 100%;
+      @media (min-width: t.$bp-tablet) {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       @media (min-width: t.$bp-desktop) {
-        flex-direction: row;
+        grid-template-columns: repeat(3, 1fr);
       }
     }
   }

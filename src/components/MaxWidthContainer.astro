@@ -1,22 +1,22 @@
 ---
 interface Props {
-  variant?: "landing" | "generic";
+  variant?: "wide" | "narrow";
 }
 
-const { variant = "generic" } = Astro.props;
+const { variant = "narrow" } = Astro.props;
 ---
 
 {
   (() => {
-    if (variant === "landing") {
+    if (variant === "wide") {
       return (
-        <div class="max-width landing">
+        <div class="max-width wide">
           <slot />
         </div>
       );
     } else {
       return (
-        <div class="max-width generic">
+        <div class="max-width narrow">
           <slot />
         </div>
       );
@@ -30,12 +30,12 @@ const { variant = "generic" } = Astro.props;
   .max-width {
     margin: auto;
 
-    &.landing {
-      width: t.$w-max-width-components--landing;
+    &.wide {
+      width: t.$w-max-width-components--wide;
     }
 
-    &.generic {
-      width: t.$w-max-width-components--generic;
+    &.narrow {
+      width: t.$w-max-width-components--narrow;
     }
   }
 </style>

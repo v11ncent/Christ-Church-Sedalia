@@ -10,17 +10,14 @@ import Link from "../components/Link.astro";
 import Videos from "../layouts/Videos.astro";
 import Dropdown from "../components/Dropdown.astro";
 import Events from "../layouts/Events.astro";
-import Event from "../components/Event.astro";
 import Footer from "../layouts/Footer.astro";
 import Watermark from "../components/Watermark.astro";
 import missionImageOne from "../assets/our-mission-1.webp";
 import missionImageTwo from "../assets/our-mission-2.webp";
-
-const pageVariant = "landing";
 ---
 
 <Layout title="Christ Church Sedalia">
-  <NavigationBar variant="landing" />
+  <NavigationBar variant="wide" />
   <main>
     <HeroBanner
       variant="landing"
@@ -31,7 +28,7 @@ const pageVariant = "landing";
       <Link variant="secondary" to="/our-beliefs" text="Our mission" />
     </HeroBanner>
     <Section variant="landing" id="our-beliefs">
-      <MaxWidthContainer variant={pageVariant}>
+      <MaxWidthContainer variant="wide">
         <div class="container center">
           <div class="text-container">
             <SectionHeader>
@@ -78,7 +75,7 @@ const pageVariant = "landing";
     </Section>
     <Section variant="paper" id="media-hub">
       <div class="no-overflow">
-        <MaxWidthContainer variant={pageVariant}>
+        <MaxWidthContainer variant="wide">
           <div class="text-container">
             <SectionHeader variant="inverted">
               <h2>Media Hub</h2>
@@ -98,8 +95,8 @@ const pageVariant = "landing";
         </MaxWidthContainer>
       </div>
     </Section>
-    <Section variant="landing" id="bible-study">
-      <MaxWidthContainer variant={pageVariant}>
+    <Section variant="landing" id="bible-studies">
+      <MaxWidthContainer variant="wide">
         <div class="container">
           <div class="text-container">
             <SectionHeader>
@@ -112,7 +109,7 @@ const pageVariant = "landing";
             </p>
             <Link
               variant="tertiary"
-              to="/bible-study"
+              to="/bible-studies"
               text="All of our bible studies"
             />
           </div>
@@ -150,7 +147,7 @@ const pageVariant = "landing";
       <Watermark />
     </Section>
     <Section variant="paper" id="events">
-      <MaxWidthContainer variant={pageVariant}>
+      <MaxWidthContainer variant="wide">
         <div class="container center">
           <div class="text-container">
             <SectionHeader variant="inverted">
@@ -164,12 +161,12 @@ const pageVariant = "landing";
             </p>
             <Link variant="tertiary" to="/events" text="View all events" />
           </div>
-          <Events />
+          <Events variant="limited" />
         </div>
       </MaxWidthContainer>
     </Section>
     <section id="join">
-      <MaxWidthContainer variant={pageVariant}>
+      <MaxWidthContainer variant="wide">
         <div class="container">
           <div class="text-container">
             <SectionHeader variant="no-decoration">
@@ -182,7 +179,7 @@ const pageVariant = "landing";
             <div class="links">
               <Link
                 variant="primary"
-                to="/bible-study"
+                to="/bible-studies"
                 text="Join our bible study"
               />
               <Link variant="secondary" to="/contact" text="Contact us" />
@@ -196,7 +193,7 @@ const pageVariant = "landing";
       </MaxWidthContainer>
     </section>
   </main>
-  <Footer variant="landing" />
+  <Footer />
 </Layout>
 
 <style lang="scss">
@@ -307,7 +304,7 @@ const pageVariant = "landing";
     }
   }
 
-  :global(section#bible-study) {
+  :global(section#bible-studies) {
     position: relative;
     overflow: hidden; /* For watermark */
 

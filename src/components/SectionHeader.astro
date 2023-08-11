@@ -1,34 +1,35 @@
 ---
 interface Props {
   variant?: "inverted" | "no-decoration" | "inner";
+  classes?: string;
 }
 
-const { variant = "" } = Astro.props;
+const { variant, classes } = Astro.props;
 ---
 
 {
   () => {
     if (variant === "inverted") {
       return (
-        <header class="section-header inverted">
+        <header class=`section-header inverted ${classes}`>
           <slot />
         </header>
       );
     } else if (variant === "no-decoration") {
       return (
-        <header class="section-header no-decoration">
+        <header class=`section-header no-decoration ${classes}`>
           <slot />
         </header>
       );
     } else if (variant === "inner") {
       return (
-        <header class="section-header inner">
+        <header class=`section-header inner ${classes}`>
           <slot />
         </header>
       );
     } else {
       return (
-        <header class="section-header decoration">
+        <header class=`section-header decoration ${classes}`>
           <slot />
         </header>
       );

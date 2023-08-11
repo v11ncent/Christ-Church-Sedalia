@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/BaseLayout.astro";
+import InnerPageLayout from "../layouts/InnerPageLayout.astro";
+import Section from "../layouts/Section.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import EventsComponent from "../layouts/Events.astro"; // renamed because naming conflict
+import MaxWidthContainer from "../components/MaxWidthContainer.astro";
+---
+
+<Layout title="Donate">
+  <InnerPageLayout
+    heroBannerHeading="Upcoming & past events"
+    contactFormHeading="Interested in any events?"
+    contactFormDescription={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce aznulla eget massa sagittis ultricies ut at purus. Mauris iaculis cursus turpis, eu cursus nulla eleifend sed. Praesent quis ligula utsapien molestie eleifend et quis mi."}
+  >
+    <Section>
+      <MaxWidthContainer variant="wide">
+        <SectionHeader variant="no-decoration" classes="center">
+          <h2>Upcoming & past events</h2>
+        </SectionHeader>
+        <EventsComponent variant="full" />
+      </MaxWidthContainer>
+    </Section>
+  </InnerPageLayout>
+</Layout>
+
+<style lang="scss">
+  p {
+    text-align: center;
+  }
+</style>
