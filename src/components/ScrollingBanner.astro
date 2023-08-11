@@ -1,12 +1,13 @@
 ---
 interface Props {
+  id?: string;
   text: string;
 }
 
-const { text } = Astro.props;
+const { id, text } = Astro.props;
 ---
 
-<div class="scrolling-banner">
+<div id={id} class="scrolling-banner">
   <div class="container">
     <p class="center">{text}</p>
   </div>
@@ -44,8 +45,7 @@ const { text } = Astro.props;
 
   .container::after {
     bottom: 0;
-    transform: translate(0, 95%);
     background: center / cover no-repeat url("../assets/paper.png");
-    transform: translate(0, 100%) rotate(180deg);
+    transform: translate(0, 95%) rotate(180deg);
   }
 </style>

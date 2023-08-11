@@ -1,24 +1,24 @@
 ---
+import { getCollection } from "astro:content";
 import VideoCarouselItem from "../components/VideoCarouselItem.astro";
 
-interface Props {
-  items: { id: string; collection: string; data: any }[];
-}
-
-const { items } = Astro.props;
+const videos = (await getCollection("videos")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
 ---
 
 <div class="carousel">
   <div class="swiper">
     <div class="swiper-wrapper">
       {
-        items.map((item) => (
+        videos.map((video) => (
           <div class="swiper-slide">
             <VideoCarouselItem
-              image={item.data.image}
-              title={item.data.title}
-              description={item.data.description}
-              link={item.data.link}
+              image={video.data.image}
+              title={video.data.title}
+              description={video.data.description}
+              link={video.data.link}
+              date={video.data.date}
             />
           </div>
         ))

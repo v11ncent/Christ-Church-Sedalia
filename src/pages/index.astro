@@ -17,9 +17,6 @@ import missionImageOne from "../assets/our-mission-1.png";
 import missionImageTwo from "../assets/our-mission-2.png";
 
 const pageVariant = "landing";
-
-const videos = await getCollection("videos");
-console.log(videos);
 ---
 
 <Layout title="Christ Church Sedalia">
@@ -65,7 +62,7 @@ console.log(videos);
             />
           </div>
           <div class="image-container">
-            <!-- <Image
+            <Image
               src={missionImageTwo}
               alt="Image of a church during sunset."
               class="small"
@@ -74,7 +71,7 @@ console.log(videos);
               src={missionImageOne}
               alt="Image of a church against a blue sky."
               class="large"
-            /> -->
+            />
           </div>
         </div>
       </MaxWidthContainer>
@@ -97,7 +94,7 @@ console.log(videos);
               <Link variant="no-decoration" to="/" text="Our Facebook page" />
             </div>
           </div>
-          <VideoCarousel items={videos} />
+          <VideoCarousel />
         </MaxWidthContainer>
       </div>
     </Section>

@@ -14,7 +14,7 @@ export default defineConfig({
   },
   media: {
     tina: {
-      mediaRoot: "",
+      mediaRoot: "tina-images",
       publicFolder: "public",
     },
   },
@@ -25,6 +25,15 @@ export default defineConfig({
         label: "Videos",
         path: "src/content/videos",
         format: "json",
+        defaultItem: () => {
+          return {
+            image: "/tina-images/hero.png",
+            title: "New Video",
+            description: "Set a description.",
+            link: "https://www.facebook.com/people/Christ-Church-Sedalia/100091224970790/?mibextid=LQQJ4d",
+            date: new Date(),
+          };
+        },
         ui: {
           // https://tina.io/docs/extending-tina/filename-customization/
           filename: {
@@ -54,8 +63,8 @@ export default defineConfig({
             required: true,
             ui: {
               validate: (value) => {
-                if (value?.length > 15) {
-                  return "Description cannot be more than 15 characters long";
+                if (value?.length > 160) {
+                  return "Description cannot be more than 160 characters long";
                 }
               },
             },
@@ -65,6 +74,11 @@ export default defineConfig({
             name: "link",
             label: "Link",
             required: true,
+          },
+          {
+            type: "datetime",
+            name: "date",
+            label: "Date",
           },
         ],
       },
@@ -95,8 +109,8 @@ export default defineConfig({
             required: true,
             ui: {
               validate: (value) => {
-                if (value?.length > 15) {
-                  return "Description cannot be more than 15 characters long";
+                if (value?.length > 160) {
+                  return "Description cannot be more than 160 characters long";
                 }
               },
             },

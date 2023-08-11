@@ -6,6 +6,7 @@ interface Props {
   title: string;
   description: string;
   link: string;
+  date: Date;
 }
 
 const { image, title, description, link } = Astro.props;
@@ -15,7 +16,7 @@ const { image, title, description, link } = Astro.props;
   <a href={link} target="_blank" rel="noopener noreferrer"></a>
   <div class="image-container">
     <img src={image} alt="" />
-    <CircleLink to="/" text="View video" />
+    <CircleLink to={link} text="View video" />
   </div>
   <div class="text-container">
     <header>
@@ -55,10 +56,13 @@ const { image, title, description, link } = Astro.props;
     margin-bottom: 2rem;
     border-radius: t.$br-small t.$br-large t.$br-small t.$br-large;
     background-color: t.$clr-tan;
+    box-shadow: t.$s-main;
 
     img {
+      width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: top;
       border-radius: inherit;
     }
   }
