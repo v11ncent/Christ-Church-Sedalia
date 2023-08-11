@@ -68,7 +68,7 @@ const currentPath = Astro.url.pathname;
   </MaxWidthContainer>
   <ScrollingNewsBanner
     id="nav-banner"
-    text="Service on Sundays starting 10:00 CST at 936 East Holley, MO."
+    text="Sunday service starting 10:00 CST at 31325 Muschaney Rd, MO."
   />
 </header>
 
@@ -95,18 +95,15 @@ const currentPath = Astro.url.pathname;
   }
 
   if (navBanner && regularBanner) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            navBanner.style.display = "none";
-          } else {
-            navBanner.style.display = "block";
-          }
-        });
-      },
-      { threshold: 1 }
-    );
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navBanner.style.display = "none";
+        } else {
+          navBanner.style.display = "block";
+        }
+      });
+    });
 
     observer.observe(regularBanner);
   }
