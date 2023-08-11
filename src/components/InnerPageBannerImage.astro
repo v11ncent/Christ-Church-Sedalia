@@ -2,7 +2,7 @@
 import MaxWidthContainer from "./MaxWidthContainer.astro";
 ---
 
-<div class="image-container">
+<div class="banner-image">
   <MaxWidthContainer>
     <div class="inner">
       <slot />
@@ -13,7 +13,7 @@ import MaxWidthContainer from "./MaxWidthContainer.astro";
 <style lang="scss">
   @use "../styles/tokens/tokens" as t;
 
-  .image-container {
+  .banner-image {
     width: t.$w-inner-page-popouts;
     margin: 2.5rem auto 0 auto;
 

@@ -26,10 +26,10 @@ const pageVariant = "landing";
       heading="Come Worship Jesus With Us"
       description={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, molestias rem ducimus esse officia recusandae quidem numquam nihil repellendus perferendis."}
     >
-      <Link variant="primary" to="/bible-study" text="Bible study" />
-      <Link variant="secondary" to="/our-mission" text="Our mission" />
+      <Link variant="primary" to="/bible-studies" text="Bible study" />
+      <Link variant="secondary" to="/our-beliefs" text="Our mission" />
     </HeroBanner>
-    <Section variant="landing" id="our-mission">
+    <Section variant="landing" id="our-beliefs">
       <MaxWidthContainer variant={pageVariant}>
         <div class="container center">
           <div class="text-container">
@@ -56,7 +56,7 @@ const pageVariant = "landing";
             </p>
             <Link
               variant="tertiary"
-              to="/our-mission"
+              to="/our-beliefs"
               text="Read more about us"
             />
           </div>
@@ -213,7 +213,7 @@ const pageVariant = "landing";
 <style lang="scss">
   @use "../styles/tokens/tokens" as t;
 
-  :global(section#our-mission) {
+  :global(section#our-beliefs) {
     $bp-two-images: 68rem;
 
     .container {
@@ -332,6 +332,7 @@ const pageVariant = "landing";
 
     .text-container {
       max-width: t.$w-container;
+      margin-left: auto;
 
       p {
         margin-bottom: 1.5rem;
@@ -348,6 +349,17 @@ const pageVariant = "landing";
         gap: 3rem;
         margin-top: 4rem;
       }
+
+      @media (min-width: t.$bp-desktop) {
+        gap: 6rem;
+        margin-top: 8rem;
+      }
+    }
+
+    :global(.watermark-container) {
+      right: 0;
+      left: auto;
+      transform: translate(30%, 40%);
     }
   }
 
