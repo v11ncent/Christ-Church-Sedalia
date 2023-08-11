@@ -7,7 +7,12 @@ interface Props {
 const { to, text } = Astro.props;
 ---
 
-<a href={to} class="circle-link-container">
+<a
+  href={to}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="circle-link-container"
+>
   <div class="circle-link">
     {text}
   </div>

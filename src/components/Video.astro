@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import CircleLink from "./CircleLink.astro";
 
 interface Props {
@@ -15,7 +16,12 @@ const { image, title, description, link } = Astro.props;
 <article>
   <a href={link} target="_blank" rel="noopener noreferrer"></a>
   <div class="image-container">
-    <img src={image} alt="" />
+    <Image
+      src={image}
+      width={420}
+      height={320}
+      alt="Image that hopefully represents the media."
+    />
     <CircleLink to={link} text="View video" />
   </div>
   <div class="text-container">

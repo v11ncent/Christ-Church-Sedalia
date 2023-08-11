@@ -20,7 +20,7 @@ const eventCollection = defineCollection({
     title: z.string(),
     description: z.string(),
     link: z.string(),
-    date: z.date(),
+    date: z.string().transform((string) => new Date(string)),
   }),
 });
 

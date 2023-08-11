@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
 import Layout from "../layouts/BaseLayout.astro";
 import NavigationBar from "../layouts/NavigationBar.astro";
 import HeroBanner from "../layouts/HeroBanner.astro";
@@ -8,7 +7,7 @@ import MaxWidthContainer from "../components/MaxWidthContainer.astro";
 import Section from "../layouts/Section.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import Link from "../components/Link.astro";
-import VideoCarousel from "../layouts/VideoCarousel.astro";
+import Videos from "../layouts/Videos.astro";
 import Dropdown from "../components/Dropdown.astro";
 import Event from "../components/Event.astro";
 import Footer from "../layouts/Footer.astro";
@@ -94,7 +93,7 @@ const pageVariant = "landing";
               <Link variant="no-decoration" to="/" text="Our Facebook page" />
             </div>
           </div>
-          <VideoCarousel />
+          <Videos />
         </MaxWidthContainer>
       </div>
     </Section>

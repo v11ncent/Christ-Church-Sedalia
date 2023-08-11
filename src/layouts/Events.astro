@@ -1,0 +1,48 @@
+<!-- ---
+import { getCollection } from "astro:content";
+import Event from "../components/Event.astro";
+
+const events = (await getCollection("events")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+console.log(events);
+---
+
+<div class="event-container">
+  <ul>
+    {
+      events.map((event) => (
+        <Event
+          image={video.data.image}
+          title={video.data.title}
+          description={video.data.description}
+          link={video.data.link}
+          date={video.data.date}
+        />
+      ))
+    }
+  </ul>
+</div>
+
+<style lang="scss">
+  @use "../styles/tokens/tokens" as t;
+
+  .event-container {
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      width: 100%;
+      height: 100%;
+
+      li {
+        width: 100%;
+      }
+
+      @media (min-width: t.$bp-desktop) {
+        flex-direction: row;
+      }
+    }
+  }
+</style> -->

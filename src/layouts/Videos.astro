@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import VideoCarouselItem from "../components/VideoCarouselItem.astro";
+import Video from "../components/Video.astro";
 
 const videos = (await getCollection("videos")).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
@@ -13,7 +13,7 @@ const videos = (await getCollection("videos")).sort(
       {
         videos.map((video) => (
           <div class="swiper-slide">
-            <VideoCarouselItem
+            <Video
               image={video.data.image}
               title={video.data.title}
               description={video.data.description}
