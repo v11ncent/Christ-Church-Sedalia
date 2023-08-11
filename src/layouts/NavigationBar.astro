@@ -134,7 +134,10 @@ const currentPath = Astro.url.pathname;
     display: flex;
     justify-content: space-between;
     gap: 4rem;
-    padding: 0 t.$pd-inline;
+
+    @media (max-width: 87.5rem) {
+      padding: 0 t.$pd-inline;
+    }
   }
 
   button {
