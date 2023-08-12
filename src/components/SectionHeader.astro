@@ -77,11 +77,12 @@ const { variant = "decoration", classes } = Astro.props;
   .inner {
     font-size: clamp(1.75rem, 1.75vw, 2rem);
     margin-bottom: 1rem;
+  }
 
-    &.decoration::after {
+  .inner.decoration::after,
+  .center.decoration::after {
       left: 0;
       right: auto;
       transform: translate(-75%, -50%);
     }
-  }
 </style>
