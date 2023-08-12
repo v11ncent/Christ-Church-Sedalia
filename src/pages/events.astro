@@ -15,7 +15,7 @@ import MaxWidthContainer from "../components/MaxWidthContainer.astro";
   >
     <Section>
       <MaxWidthContainer variant="wide">
-        <SectionHeader variant="no-decoration" classes="center">
+        <SectionHeader variant="decoration" classes="center">
           <h2>Upcoming & past events</h2>
         </SectionHeader>
         <EventsComponent variant="full" />
@@ -28,4 +28,10 @@ import MaxWidthContainer from "../components/MaxWidthContainer.astro";
   p {
     text-align: center;
   }
+
+  // :global(.section-header::after) {
+  //   left: 0;
+  //   right: auto;
+  //   transform: translate(75%, 50%);
+  // }
 </style>

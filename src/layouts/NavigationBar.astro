@@ -40,13 +40,23 @@ const currentPath = Astro.url.pathname;
         </button>
         <ul data-visible="false">
           <li>
-            <a href="/" class={currentPath === "/" ? "active" : ""}>Home</a>
-          </li>
-          <li>
             <a
               href="/our-beliefs"
               class={currentPath.includes("our-beliefs") ? "active" : ""}
-              >Our Beliefs</a
+              >Beliefs</a
+            >
+          </li>
+          <li>
+            <a
+              href="/bible-studies"
+              class={currentPath.includes("bible-studies") ? "active" : ""}
+              >Studies</a
+            >
+          </li>
+          <li>
+            <a
+              href="/events"
+              class={currentPath.includes("events") ? "active" : ""}>Events</a
             >
           </li>
           <li>
@@ -208,7 +218,7 @@ const currentPath = Astro.url.pathname;
   ul {
     display: flex;
     align-items: center;
-    gap: 4rem;
+    gap: 3rem;
 
     @media (max-width: $breakpoint) {
       position: fixed;
@@ -218,7 +228,6 @@ const currentPath = Astro.url.pathname;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 4rem;
       padding: 2rem;
       font-size: 1.5rem;
       background-color: #fdfcff;

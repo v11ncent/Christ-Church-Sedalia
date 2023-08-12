@@ -1,10 +1,10 @@
 ---
 interface Props {
-  variant?: "inverted" | "no-decoration" | "inner";
+  variant?: "inverted" | "no-decoration" | "decoration" | "inner";
   classes?: string;
 }
 
-const { variant, classes } = Astro.props;
+const { variant = "decoration", classes } = Astro.props;
 ---
 
 {
@@ -23,7 +23,7 @@ const { variant, classes } = Astro.props;
       );
     } else if (variant === "inner") {
       return (
-        <header class=`section-header inner ${classes}`>
+        <header class=`section-header decoration inner ${classes}`>
           <slot />
         </header>
       );
@@ -77,5 +77,11 @@ const { variant, classes } = Astro.props;
   .inner {
     font-size: clamp(1.75rem, 1.75vw, 2rem);
     margin-bottom: 1rem;
+
+    &.decoration::after {
+      left: 0;
+      right: auto;
+      transform: translate(-75%, -50%);
+    }
   }
 </style>
