@@ -81,9 +81,10 @@ const openValue = open ? "" : null;
     font-family: t.$ff-poppy;
     letter-spacing: 0.0469rem;
     color: white;
-    background-color: t.$clr-green;
+    background: center / cover no-repeat url("../assets/paper-background.webp")
+      t.$clr-green;
     border-radius: t.$br-main;
-    box-shadow: 0rem 0.25rem 0.75rem 0rem #f1f1ec;
+    box-shadow: t.$s-main;
     cursor: pointer;
 
     &::marker {
