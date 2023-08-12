@@ -4,19 +4,18 @@ import NewsBanner from "../components/NewsBanner.astro";
 
 interface Props {
   variant: "landing" | "inner";
-  id?: string;
   heading?: string;
   description?: string;
 }
 
-const { variant, id = "", heading, description } = Astro.props;
+const { variant, heading, description } = Astro.props;
 ---
 
 {
   () => {
     if (variant === "landing") {
       return (
-        <section id={id} class="landing">
+        <section id="hero" class="landing">
           <MaxWidthContainer>
             <div class="container">
               <header>
@@ -33,7 +32,7 @@ const { variant, id = "", heading, description } = Astro.props;
       );
     } else if (variant === "inner") {
       return (
-        <section id={id} class="inner">
+        <section id="hero" class="inner">
           <MaxWidthContainer>
             <div class="container">
               <header>
@@ -59,15 +58,15 @@ const { variant, id = "", heading, description } = Astro.props;
     background: center / cover no-repeat url("../assets/hero.webp") fixed;
 
     &.landing {
-      min-height: min(90vh, 50rem);
+      min-height: min(90dvh, 50rem);
     }
 
     &.inner {
-      min-height: min(50vh, 30rem);
+      min-height: min(50dvh, 30rem);
     }
 
     :global(.max-width) {
-      padding: 0 t.$pd-inline;
+      padding: 3rem t.$pd-inline;
     }
 
     .container {
