@@ -7,7 +7,7 @@ import MaxWidthContainer from "../components/MaxWidthContainer.astro";
 import Section from "../layouts/Section.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import Link from "../components/Link.astro";
-import Videos from "../layouts/Videos.astro";
+import VideoCarousel from "../layouts/VideoCarousel.astro";
 import Dropdown from "../components/Dropdown.astro";
 import Events from "../layouts/Events.astro";
 import Footer from "../layouts/Footer.astro";
@@ -87,11 +87,16 @@ import missionImageTwo from "../assets/our-mission-2.webp";
               ut sapien molestie eleifend et quis mi.
             </p>
             <div class="links">
-              <Link variant="tertiary" to="/" text="View all videos" />
-              <Link variant="no-decoration" to="/" text="Our Facebook page" />
+              <Link variant="tertiary" to="/media-hub" text="View all videos" />
+              <Link
+                variant="no-decoration"
+                to="https://www.facebook.com/people/Christ-Church-Sedalia/100091224970790/"
+                text="Our Facebook page"
+                external={true}
+              />
             </div>
           </div>
-          <Videos />
+          <VideoCarousel />
         </MaxWidthContainer>
       </div>
     </Section>
