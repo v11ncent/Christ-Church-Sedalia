@@ -58,11 +58,15 @@ const { variant, heading, description } = Astro.props;
     background: center / cover no-repeat url("../assets/hero.webp") fixed;
 
     &.landing {
-      min-height: min(90dvh, 50rem);
+      min-height: min(100dvh, 50rem);
+
+      @media (max-width: 320px) {
+        min-height: min(90dvh, 50rem);
+      }
     }
 
     &.inner {
-      min-height: min(50dvh, 30rem);
+      min-height: min(70dvh, 30rem);
     }
 
     :global(.max-width) {
