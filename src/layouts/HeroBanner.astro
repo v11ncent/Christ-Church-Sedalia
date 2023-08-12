@@ -55,7 +55,11 @@ const { variant, heading, description } = Astro.props;
     display: flex;
     flex-direction: column;
     color: white;
-    background: center / cover no-repeat url("../assets/hero.webp") fixed;
+    background: center / cover no-repeat url("../assets/hero.webp");
+
+    @media (min-width: t.$bp-desktop) {
+      background: center / cover no-repeat url("../assets/hero.webp");
+    }
 
     &.landing {
       min-height: min(90vh, 50rem);
