@@ -17,7 +17,7 @@ const cld = new Cloudinary({
 
 const { src, width, height, alt } = Astro.props;
 
-const cldSrc = cld.image(src);
+const cldSrc = cld.image(`https://sweet-creponne-9e8302.netlify.app/${src}`);
 cldSrc.setDeliveryType("fetch");
 ---
 
