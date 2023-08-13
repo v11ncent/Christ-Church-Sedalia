@@ -19,11 +19,13 @@ const { src, width, height, alt } = Astro.props;
 
 // 'https://sweet-creponne-9e8302.netlify.app/tina-images/pastor-3.PNG
 // Prefix our image src with our public url so that cloudinary fetches a remote image
+
 const cldSrc = cld
   .image(`https://sweet-creponne-9e8302.netlify.app${src}`)
   .format("auto")
   .delivery("q_auto")
   .resize(`c_crop,w_${width},h_${height},g_face`);
+
 cldSrc.setDeliveryType("fetch");
 ---
 

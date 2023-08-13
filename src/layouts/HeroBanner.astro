@@ -55,7 +55,11 @@ const { variant, heading, description } = Astro.props;
     display: flex;
     flex-direction: column;
     color: white;
-    background: center / cover no-repeat url("../assets/hero.webp");
+    background: center / cover no-repeat url("../assets/hero-mobile.webp");
+
+    @media (min-width: t.$bp-tablet) {
+      background: center / cover no-repeat url("../assets/hero-tablet.webp");
+    }
 
     @media (min-width: t.$bp-desktop) {
       background: center / cover no-repeat url("../assets/hero.webp") fixed;
