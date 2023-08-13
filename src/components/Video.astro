@@ -1,6 +1,6 @@
 ---
+import CloudinaryImage from "./CloudinaryImage.astro";
 import { Image } from "astro:assets";
-import CircleLink from "./CircleLink.astro";
 
 interface Props {
   image: string;
@@ -27,12 +27,18 @@ const { image, title, description, link } = Astro.props;
     )
   }
   <div class="image-container">
-    <Image
-      src={image ? image : ""}
-      width={400}
-      height={320}
-      alt="Image that hopefully represents the media."
-    />
+    {
+      image ? (
+        <CloudinaryImage
+          src={image}
+          width={400}
+          height={320}
+          alt="Image that hopefully represents the media."
+        />
+      ) : (
+        ""
+      )
+    }
     <div class="hover-container">
       <div class="arrow"></div>
       <p>View video</p>

@@ -1,0 +1,24 @@
+---
+import { Cloudinary } from "@cloudinary/url-gen";
+import { Image } from "astro:assets";
+
+interface Props {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+}
+
+const cld = new Cloudinary({
+  cloud: {
+    cloudName: "dfyfrnpk4",
+  },
+});
+
+const { src, width, height, alt } = Astro.props;
+
+const cldSrc = cld.image(src);
+cldSrc.setDeliveryType("fetch");
+---
+
+<Image src={cldSrc.toURL()} width={width} height={height} alt={alt} />
