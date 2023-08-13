@@ -30,9 +30,9 @@ const { image, title, description, link } = Astro.props;
     {
       image ? (
         <CloudinaryImage
-          src={`https://sweet-creponne-9e8302.netlify.app/${image}`}
-          width={400}
-          height={320}
+          src={image}
+          width={500}
+          height={500}
           alt="Image that hopefully represents the media."
         />
       ) : (
