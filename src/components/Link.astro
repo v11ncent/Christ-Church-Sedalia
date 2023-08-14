@@ -83,11 +83,13 @@ const externalProps = external ? { target: "_blank", rel: "noopener" } : {};
       transition: $transition;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: t.$clr-tan;
     }
 
-    &:hover::before {
+    &:hover::before,
+    &:focus::before {
       color: t.$clr-tan;
       transform: scaleX(1);
     }
@@ -98,6 +100,11 @@ const externalProps = external ? { target: "_blank", rel: "noopener" } : {};
     border: 0.0938rem solid #eaeaea;
 
     &:hover {
+      border: 0.0938rem solid white;
+      color: white;
+    }
+
+    &:focus {
       border: 0.0938rem solid white;
       color: white;
     }
@@ -125,11 +132,13 @@ const externalProps = external ? { target: "_blank", rel: "noopener" } : {};
       transition: $transition;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: t.$clr-tan;
     }
 
-    &:hover::before {
+    &:hover::before,
+    &:focus::before {
       color: t.$clr-tan;
       transform: scaleX(1);
     }
@@ -138,7 +147,8 @@ const externalProps = external ? { target: "_blank", rel: "noopener" } : {};
   .no-decoration {
     color: t.$clr-black;
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: t.$clr-green;
     }
   }
