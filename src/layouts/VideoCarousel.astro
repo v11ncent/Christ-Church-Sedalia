@@ -28,10 +28,30 @@ const videos = (await getCollection("videos")).sort(
   <div class="navigation-buttons">
     <button
       class="previous-button"
-      aria-label="Click to move the slider back by one video"></button>
+      aria-label="Click to move the slider back by one video"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none"
+        ><path
+          d="M13.869 7.451H1m0 0l6.177-6.193M1 7.451l6.177 6.193"
+          stroke="#5b5b45"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path></svg
+      >
+    </button>
     <button
       class="next-button"
-      aria-label="Click to move the slider forward by one video"></button>
+      aria-label="Click to move the slider forward by one video"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none"
+        ><path
+          d="M13.869 7.451H1m0 0l6.177-6.193M1 7.451l6.177 6.193"
+          stroke="#5b5b45"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path></svg
+      >
+    </button>
   </div>
 </div>
 
@@ -90,6 +110,9 @@ const videos = (await getCollection("videos")).sort(
     margin-top: 2rem;
 
     button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       width: 1.875rem;
       height: 1.875rem;
       border-radius: 100%;
@@ -97,10 +120,16 @@ const videos = (await getCollection("videos")).sort(
       cursor: pointer;
       border: 0.0625rem solid t.$clr-green;
       background: center / 50% no-repeat url("../assets/arrow-previous.svg");
+      box-shadow: t.$s-main;
+      transition: t.$t-main;
 
       &:hover {
         background-color: t.$clr-green;
-        fill: t.$clr-tan;
+      }
+
+      &:hover svg path {
+        transition: t.$t-main;
+        stroke: t.$clr-tan;
       }
     }
 
