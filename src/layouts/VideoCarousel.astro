@@ -67,6 +67,7 @@ const videos = (await getCollection("videos")).sort(
     autoplay: {
       delay: 3000,
       pauseOnMouseEnter: true,
+      disableOnInteraction: false,
     },
     slidesPerView: 1.1,
     spaceBetween: "16",
