@@ -98,7 +98,6 @@ const openValue = open ? "" : null;
       border-radius: t.$br-main;
       box-shadow: t.$s-main;
       cursor: pointer;
-      list-style: none;
 
       .decoration-container {
         position: absolute;
@@ -125,7 +124,7 @@ const openValue = open ? "" : null;
         }
       }
 
-      &::marker {
+      &::-webkit-details-marker {
         display: none;
       }
     }
