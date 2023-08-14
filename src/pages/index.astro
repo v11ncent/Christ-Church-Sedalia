@@ -253,10 +253,11 @@ import adultBibleStudy from "../assets/bible-study-adults.webp";
 
     .image-container {
       min-height: 21rem;
-      perspective: 1000px;
+      max-height: 28.5rem;
+      perspective: 62.5rem;
 
       &:hover img.small {
-        transform: translate3d(-0.125rem, -25%, 100px);
+        transform: translate3d(-0.125rem, -25%, 6.25rem);
       }
 
       &:hover img.large {
@@ -287,7 +288,7 @@ import adultBibleStudy from "../assets/bible-study-adults.webp";
       grid-row: 3;
       z-index: 2;
       box-shadow: t.$s-main;
-      transform: translate3d(0, -25%, 100px);
+      transform: translate3d(0, -25%, 6.25rem);
 
       @media (max-width: $bp-two-images) {
         display: none;

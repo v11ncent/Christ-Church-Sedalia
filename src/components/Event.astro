@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import CloudinaryImage from "./CloudinaryImage.astro";
 
 interface Props {
   image: string;
@@ -12,7 +12,7 @@ interface Props {
 const { image, title, description, link, date } = Astro.props;
 ---
 
-<article class="video">
+<article class="event">
   {
     link ? (
       <a
@@ -26,7 +26,7 @@ const { image, title, description, link, date } = Astro.props;
   <div class="image-container">
     {
       image ? (
-        <Image
+        <CloudinaryImage
           src={image}
           width={500}
           height={500}
@@ -53,7 +53,7 @@ const { image, title, description, link, date } = Astro.props;
 <style lang="scss">
   @use "../styles/tokens/tokens" as t;
 
-  .video {
+  .event {
     position: relative;
     max-width: 26.25rem; /* Funny number 😯💨*/
 
@@ -76,7 +76,7 @@ const { image, title, description, link, date } = Astro.props;
       height: 100%;
       top: 0;
       left: 0;
-      transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+      transition: t.$t-main;
     }
 
     &:hover .hover-background-container {
