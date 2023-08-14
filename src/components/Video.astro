@@ -1,6 +1,5 @@
 ---
 import CloudinaryImage from "./CloudinaryImage.astro";
-import { Image } from "astro:assets";
 
 interface Props {
   image: string;
@@ -20,11 +19,9 @@ const { image, title, description, link } = Astro.props;
         href={link}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Click to watch the video on Facebook"
+        aria-label="Click to watch the video on Facebook."
       />
-    ) : (
-      ""
-    )
+    ) : null
   }
   <div class="image-container">
     {
