@@ -115,12 +115,12 @@ const videos = (await getCollection("videos")).sort(
       justify-content: center;
       width: 1.875rem;
       height: 1.875rem;
-      border-radius: 100%;
-      border: transparent;
-      cursor: pointer;
       border: 0.0625rem solid t.$clr-green;
+      border-radius: 100%;
+      background-color: transparent;
       box-shadow: t.$s-main;
       transition: t.$t-main;
+      cursor: pointer;
 
       &:hover {
         background-color: t.$clr-green;
