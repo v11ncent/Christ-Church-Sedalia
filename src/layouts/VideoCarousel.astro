@@ -48,11 +48,9 @@ const videos = (await getCollection("videos")).sort(
       delay: 3000,
       pauseOnMouseEnter: true,
     },
+    slidesPerView: 1.1,
+    spaceBetween: "16",
     breakpoints: {
-      320: {
-        slidesPerView: 1.1,
-        spaceBetween: "16",
-      },
       450: {
         slidesPerView: 1.5,
         spaceBetween: "16",
@@ -96,19 +94,22 @@ const videos = (await getCollection("videos")).sort(
       height: 1.875rem;
       border-radius: 100%;
       border: transparent;
-      background-color: transparent;
       cursor: pointer;
+      border: 0.0625rem solid t.$clr-green;
+      background: center / 50% no-repeat url("../assets/arrow-previous.svg");
+
+      &:hover {
+        background-color: t.$clr-green;
+        fill: t.$clr-tan;
+      }
     }
 
     .next-button {
-      background: center / 50% no-repeat url("../assets/arrow-next.svg")
-        t.$clr-green;
+      transform: rotate(180deg);
     }
 
     .previous-button {
       margin-right: 0.25rem;
-      border: 0.0625rem solid t.$clr-green;
-      background: center / 50% no-repeat url("../assets/arrow-previous.svg");
     }
   }
 </style>

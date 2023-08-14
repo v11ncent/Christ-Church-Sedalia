@@ -40,7 +40,7 @@ const { image, title, description, link } = Astro.props;
       )
     }
     <div class="hover-container">
-      <div class="arrow"></div>
+      <div class="play"></div>
       <p>View video</p>
     </div>
     <div class="hover-background-container"></div>
@@ -144,13 +144,11 @@ const { image, title, description, link } = Astro.props;
     z-index: 2;
     pointer-events: none;
 
-    .arrow {
+    .play {
       width: 4rem;
       height: 4rem;
       border-radius: 100%;
-      background: center / 30% no-repeat url("../assets/arrow-previous.svg")
-        t.$clr-tan;
-      transform: rotate(180deg);
+      background: 55% 50% / 25% no-repeat url("../assets/play.svg") t.$clr-tan;
     }
 
     p {

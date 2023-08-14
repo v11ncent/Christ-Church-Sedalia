@@ -42,6 +42,7 @@ const externalProps = external ? { target: "_blank", rel: "noopener" } : {};
 
 <style lang="scss">
   @use "../styles/tokens/tokens" as t;
+  $transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
   a {
     display: block;
@@ -49,10 +50,11 @@ const externalProps = external ? { target: "_blank", rel: "noopener" } : {};
     padding: 0.75rem 2rem;
     text-align: center;
     text-decoration: none;
-    border-radius: 0.3125rem 1.875rem 0.3125rem 1.875rem;
     font-family: t.$ff-poppy;
     font-weight: 500;
     font-size: inherit;
+    border-radius: t.$br-main;
+    transition: $transition;
 
     @media (min-width: 31.25rem) {
       max-width: fit-content;
@@ -60,21 +62,84 @@ const externalProps = external ? { target: "_blank", rel: "noopener" } : {};
   }
 
   .primary {
-    color: t.$clr-black;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    color: t.$clr-green;
     background-color: white;
+    border: 1.5px solid white;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-color: t.$clr-green;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: $transition;
+    }
+
+    &:hover {
+      color: t.$clr-tan;
+    }
+
+    &:hover::before {
+      color: t.$clr-tan;
+      transform: scaleX(1);
+    }
   }
 
   .secondary {
-    color: white;
-    border: 0.0938rem solid white;
+    color: #eaeaea;
+    border: 0.0938rem solid #eaeaea;
+
+    &:hover {
+      border: 0.0938rem solid white;
+      color: white;
+    }
   }
 
   .tertiary {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
     color: t.$clr-black;
-    border: 0.0938rem solid t.$clr-black;
+    box-shadow: rgba(0, 0, 0, 0.1) 0rem 0.625rem 3.125rem;
+    border: 1.5px solid t.$clr-black;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-color: t.$clr-green;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: $transition;
+    }
+
+    &:hover {
+      color: t.$clr-tan;
+    }
+
+    &:hover::before {
+      color: t.$clr-tan;
+      transform: scaleX(1);
+    }
   }
 
   .no-decoration {
     color: t.$clr-black;
+
+    &:hover {
+      color: t.$clr-green;
+    }
   }
 </style>
