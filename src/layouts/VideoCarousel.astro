@@ -123,13 +123,11 @@ const videos = (await getCollection("videos")).sort(
       transition: t.$t-main;
       cursor: pointer;
 
-      &:hover,
-      &:focus {
+      &:hover {
         background-color: t.$clr-green;
       }
 
-      &:hover svg path,
-      &:focus svg path {
+      &:hover svg path {
         transition: t.$t-main;
         stroke: t.$clr-tan;
       }
