@@ -60,41 +60,62 @@ const videos = (await getCollection("videos")).sort(
   import { Navigation, Autoplay } from "swiper/modules";
   import "swiper/css";
 
-  const swiper = new Swiper(".swiper", {
-    modules: [Navigation, Autoplay],
-    loop: true,
-    speed: 800,
-    autoplay: {
-      delay: 3000,
-      pauseOnMouseEnter: true,
-      disableOnInteraction: false,
-    },
-    slidesPerView: 1.1,
-    spaceBetween: "16",
-    breakpoints: {
-      450: {
-        slidesPerView: 1.5,
-        spaceBetween: "16",
-      },
-      700: {
-        slidesPerView: 2.5,
-        spaceBetween: "32",
-      },
-      1000: {
-        slidesPerView: 3,
-        spaceBetween: "48",
-      },
-    },
+  const setCarousel = () => {
+    /*
+      I believe Swiper's script resets the styling every time this function is called
+      So every time the route changes, it resets the styling
+      Hence why we need to explicitly set the styling in the function call
+    */
+    const element = document.querySelector(".swiper") as HTMLElement;
 
-    navigation: {
-      nextEl: ".next-button",
-      prevEl: ".previous-button",
-    },
-  });
+    if (element) {
+      element.style.overflow = "visible";
+    }
+
+    const swiper = new Swiper(".swiper", {
+      modules: [Navigation, Autoplay],
+      loop: true,
+      speed: 800,
+      autoplay: {
+        delay: 3000,
+        pauseOnMouseEnter: true,
+        disableOnInteraction: false,
+      },
+      slidesPerView: 1.1,
+      spaceBetween: "16",
+      breakpoints: {
+        450: {
+          slidesPerView: 1.5,
+          spaceBetween: "16",
+        },
+        700: {
+          slidesPerView: 2.5,
+          spaceBetween: "32",
+        },
+        1000: {
+          slidesPerView: 3,
+          spaceBetween: "48",
+        },
+      },
+
+      navigation: {
+        nextEl: ".next-button",
+        prevEl: ".previous-button",
+      },
+    });
+  };
+
+  setCarousel();
+  document.addEventListener("astro:beforeload", setCarousel);
 </script>
 
 <style lang="scss">
   @use "../styles/tokens/tokens" as t;
+
+  .carousel,
+  .swiper {
+    overflow: visible;
+  }
 
   .carousel {
     display: flex;
