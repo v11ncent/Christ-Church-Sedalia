@@ -42,7 +42,6 @@ const externalProps = external ? { target: "_blank", rel: "noopener" } : {};
 
 <style lang="scss">
   @use "../styles/tokens/tokens" as t;
-  $transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
   a {
     display: block;
@@ -54,7 +53,7 @@ const externalProps = external ? { target: "_blank", rel: "noopener" } : {};
     font-weight: 500;
     font-size: inherit;
     border-radius: t.$br-main;
-    transition: $transition;
+    transition: t.$t-main;
 
     @media (min-width: 31.25rem) {
       max-width: fit-content;
@@ -80,7 +79,7 @@ const externalProps = external ? { target: "_blank", rel: "noopener" } : {};
       background-color: t.$clr-green;
       transform: scaleX(0);
       transform-origin: left;
-      transition: $transition;
+      transition: t.$t-main;
     }
 
     &:hover,
@@ -129,7 +128,7 @@ const externalProps = external ? { target: "_blank", rel: "noopener" } : {};
       background-color: t.$clr-green;
       transform: scaleX(0);
       transform-origin: left;
-      transition: $transition;
+      transition: t.$t-main;
     }
 
     &:hover,
