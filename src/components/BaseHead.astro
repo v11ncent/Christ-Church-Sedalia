@@ -1,6 +1,7 @@
 ---
 import "../styles/main.scss";
 import Analytics from "./Analytics.astro";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -50,3 +51,5 @@ const { title, description, image = "/og-preview.svg" } = Astro.props;
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+
+<ViewTransitions fallback="none" />

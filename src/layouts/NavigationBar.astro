@@ -83,40 +83,45 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <script>
-  const button = document.getElementById("hamburger");
-  const list = document.querySelector("#main-navigation ul");
-  const navBanner = document.getElementById("nav-banner");
-  const regularBanner = document.querySelector(".news-banner");
+  const setNavbar = () => {
+    const button = document.getElementById("hamburger");
+    const list = document.querySelector("#main-navigation ul");
+    const navBanner = document.getElementById("nav-banner");
+    const regularBanner = document.querySelector(".news-banner");
 
-  if (button && list) {
-    button.addEventListener("click", (event) => {
-      const visibility = list.getAttribute("data-visible");
+    if (button && list) {
+      button.addEventListener("click", (event) => {
+        const visibility = list.getAttribute("data-visible");
 
-      if (visibility === "false") {
-        list.setAttribute("data-visible", "true");
-        button.setAttribute("aria-expanded", "true");
-        document.body.style.overflow = "hidden";
-      } else {
-        list.setAttribute("data-visible", "false");
-        button.setAttribute("aria-expanded", "false");
-        document.body.style.overflow = "visible";
-      }
-    });
-  }
-
-  if (navBanner && regularBanner) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navBanner.style.display = "none";
+        if (visibility === "false") {
+          list.setAttribute("data-visible", "true");
+          button.setAttribute("aria-expanded", "true");
+          document.body.style.overflow = "hidden";
         } else {
-          navBanner.style.display = "block";
+          list.setAttribute("data-visible", "false");
+          button.setAttribute("aria-expanded", "false");
+          document.body.style.overflow = "visible";
         }
       });
-    });
+    }
 
-    observer.observe(regularBanner);
-  }
+    if (navBanner && regularBanner) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            navBanner.style.display = "none";
+          } else {
+            navBanner.style.display = "block";
+          }
+        });
+      });
+
+      observer.observe(regularBanner);
+    }
+  };
+
+  setNavbar();
+  document.addEventListener("astro:beforeload", setNavbar);
 </script>
 
 <style lang="scss">
