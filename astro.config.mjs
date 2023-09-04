@@ -5,7 +5,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "http://localhost:3001",
+  site: "https://christchurchsedalia.com",
   experimental: {
     assets: true,
     viewTransitions: true,
