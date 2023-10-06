@@ -10,10 +10,7 @@ import image from "../assets/hero-desktop.webp";
 ---
 
 <Layout title="Bible Studies | Christ Church Sedalia">
-  <InnerPageLayout
-    heroBannerHeading="Our Bible Studies"
-    contactFormHeading="Join our bible study"
-  >
+  <InnerPageLayout heroBannerHeading="Our Bible Studies" contactFormHeading="Join our bible study">
     <Section>
       <MaxWidthContainer>
         <div class="container">
@@ -21,11 +18,20 @@ import image from "../assets/hero-desktop.webp";
             <h2>Our Bible Studies</h2>
           </SectionHeader>
           <p class="space">
-            We believe that teaching the gospel of Jesus Christ is of utmost
-            importance. We embrace New City Catechism, which is a way to teach
-            the gospel in easy to digest, bite-sized pieces. This is perfect for
-            younger children, but is also effective for teens and adults if
-            little of the gospel is known.
+            We seek to glorify God by studying His Most Holy Word. All of our Sunday School classes
+            and adult studies focus on learning the blessed doctrines in the Scriptures for the
+            purpose of knowing our God better that we might walk worthily as we grow in holiness.
+          </p>
+          <p class="space">
+            We believe that the Bible alone is our true spiritual authority and any other books,
+            confessions, catechisms, etc. used are only of value inasmuch as they are in harmony
+            with the Bible.
+          </p>
+          <p>
+            We teach classic Reformed Scriptural truths like the Five Solas, the Doctrines of Grace,
+            Covenant Theology, the Fourfold State of Man, sanctification, and any other doctrine
+            contained in the Word. We use expository teaching, topical studies, catechisms, and
+            historic confessions to teach God’s Word to the sheep Jesus died to save.
           </p>
         </div>
       </MaxWidthContainer>
@@ -34,32 +40,11 @@ import image from "../assets/hero-desktop.webp";
       <MaxWidthContainer>
         <div class="container">
           <SectionHeader variant="inner">
-            <h2>1. Child Bible Studies</h2>
+            <h2>1. Children's Study School</h2>
           </SectionHeader>
           <p>
-            We teach children the gospel by studying New Chity Catechism.
-            Catechisms allow children to easily understand truths of the gospel
-            through bite-sized pieces. Each week builds upon the last which
-            ultimately allows children to understand complex ideas about the
-            gospel in a piecemeal way.
-          </p>
-        </div>
-      </MaxWidthContainer>
-      <InnerPageBannerImage>
-        <Image src={image} alt="" class="image" />
-      </InnerPageBannerImage>
-    </Section>
-    <Section>
-      <MaxWidthContainer>
-        <div class="container">
-          <SectionHeader variant="inner">
-            <h2>2. Young Adult Bible Studies</h2>
-          </SectionHeader>
-          <p>
-            We teach teenagers similarly to how we teach our children: in
-            bite-sized pieces. However, we add a bit more complexity to our
-            teachings each week. This allows teens to learn faster than our
-            children without being too overwhelmed.
+            Our children are also taught using the New City Catechism at an age-appropriate pace and
+            depth in order to become familiar with the Holy Bible and it’s teachings at a young age
           </p>
         </div>
       </MaxWidthContainer>
@@ -71,15 +56,39 @@ import image from "../assets/hero-desktop.webp";
       <MaxWidthContainer>
         <div class="container">
           <SectionHeader variant="inner">
-            <h2>3. Adult Bible Studies</h2>
+            <h2>2. Youth Sunday School</h2>
           </SectionHeader>
           <p>
-            With our adult bible studies, we can go in one of two ways: normal
-            bible-study (where the teachings are more complex), or piecemeal
-            (like our other studies). If a particular group is already familiar
-            with the teachings of Jesus Christ, we study the bible in a typical
-            fashion. However, if a group of adults is unfamiliar with the
-            gospel, we have found that it's easier to go the piecemeal approach.
+            Youth are taught the same as adults, using the Word of God to learn doctrine and
+            holiness in order to glorify God in their lives. They are currently using the New City
+            Catechism to commit these teachings to memory. They also study each doctrine taught, as
+            this is not a rote memory exercise, but a means of hiding the truth of God’s Word in
+            their hearts.
+          </p>
+        </div>
+      </MaxWidthContainer>
+      <InnerPageBannerImage>
+        <Image src={image} alt="" class="image" />
+      </InnerPageBannerImage>
+    </Section>
+    <Section>
+      <MaxWidthContainer>
+        <div class="container">
+          <SectionHeader variant="inner">
+            <h2>3. Adult Sunday School & Studies</h2>
+          </SectionHeader>
+          <p class="space">
+            Our adult Sunday School class is currently learning Biblical doctrine through a detailed
+            study of our confession of faith, the Second London Baptist Confession of Faith of 1689,
+            lovingly known as “the 1689”.
+          </p>
+          <p class="space">
+            The Men’s Study currently meets Friday mornings and is currently working through an
+            expository series on Proverbs.
+          </p>
+          <p>
+            The Women’s Study meets on Wednesday mornings and has completed a variety of studies.
+            Most recently, the completed an expository study on the Parable of the Prodigal Son.
           </p>
         </div>
       </MaxWidthContainer>
@@ -96,11 +105,7 @@ import image from "../assets/hero-desktop.webp";
   /* Would be better to make separate variants, but quick solution and
     site isn't that big */
 
-  :global(
-      section:nth-of-type(2),
-      section:nth-of-type(3),
-      section:nth-of-type(4)
-    ) {
+  :global(section:nth-of-type(2), section:nth-of-type(3), section:nth-of-type(4)) {
     padding-bottom: 0;
   }
 

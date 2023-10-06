@@ -3,13 +3,14 @@ import CloudinaryImage from "./CloudinaryImage.astro";
 
 interface Props {
   image: string;
+  alt?: string;
   title: string;
   description: string;
   link: string;
   date: Date;
 }
 
-const { image, title, description, link } = Astro.props;
+const { image, alt, title, description, link } = Astro.props;
 ---
 
 <article class="video">
@@ -30,7 +31,7 @@ const { image, title, description, link } = Astro.props;
           src={image}
           width={500}
           height={500}
-          alt="Image that hopefully represents the media."
+          alt={alt ? alt : "Image that hopefully represents the media."}
         />
       ) : (
         ""

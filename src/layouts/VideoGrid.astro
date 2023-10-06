@@ -27,6 +27,7 @@ const videos = (await getCollection("videos")).sort(
             {videos?.slice(0, 9).map((video) => (
               <Video
                 image={video.data.image}
+                alt={video.data.alt}
                 title={video.data.title}
                 description={video.data.description}
                 link={video.data.link}

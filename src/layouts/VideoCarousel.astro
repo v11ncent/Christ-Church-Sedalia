@@ -15,6 +15,7 @@ const videos = (await getCollection("videos")).sort(
           <div class="swiper-slide">
             <Video
               image={video.data.image}
+              alt={video.data.alt}
               title={video.data.title}
               description={video.data.description}
               link={video.data.link}
@@ -26,10 +27,7 @@ const videos = (await getCollection("videos")).sort(
     </div>
   </div>
   <div class="navigation-buttons">
-    <button
-      class="previous-button"
-      aria-label="Click to move the slider back by one video"
-    >
+    <button class="previous-button" aria-label="Click to move the slider back by one video">
       <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none"
         ><path
           d="M13.869 7.451H1m0 0l6.177-6.193M1 7.451l6.177 6.193"
@@ -39,10 +37,7 @@ const videos = (await getCollection("videos")).sort(
           stroke-linejoin="round"></path></svg
       >
     </button>
-    <button
-      class="next-button"
-      aria-label="Click to move the slider forward by one video"
-    >
+    <button class="next-button" aria-label="Click to move the slider forward by one video">
       <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none"
         ><path
           d="M13.869 7.451H1m0 0l6.177-6.193M1 7.451l6.177 6.193"

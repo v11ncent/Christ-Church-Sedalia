@@ -6,6 +6,7 @@ const videoCollection = defineCollection({
   type: "data", // v2.5.0 and later
   schema: z.object({
     image: z.string(),
+    alt: z.string().optional(),
     title: z.string(),
     description: z.string(),
     link: z.string(),
@@ -17,6 +18,7 @@ const eventCollection = defineCollection({
   type: "data",
   schema: z.object({
     image: z.string(),
+    alt: z.string().optional(),
     title: z.string(),
     description: z.string(),
     link: z.string(),

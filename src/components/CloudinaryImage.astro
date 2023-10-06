@@ -1,11 +1,6 @@
 ---
 import { Cloudinary } from "@cloudinary/url-gen";
-import {
-  crop,
-  fit,
-  thumbnail,
-  imaggaCrop,
-} from "@cloudinary/url-gen/actions/resize";
+import { crop, fit, thumbnail, imaggaCrop } from "@cloudinary/url-gen/actions/resize";
 import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
 import { Image } from "astro:assets";
 
@@ -26,10 +21,7 @@ const { src, width, height, alt } = Astro.props;
 
 // 'https://sweet-creponne-9e8302.netlify.app/tina-images/pastor-3.PNG
 // Prefix our image src with our public url so that cloudinary fetches a remote image
-const formattedSrc = `${import.meta.env.BASE_SITE_URL.toString().slice(
-  0,
-  -1
-)}${src}`;
+const formattedSrc = `${import.meta.env.BASE_SITE_URL.toString().slice(0, -1)}${src}`;
 
 const cldSrc = cld
   .image(formattedSrc)
@@ -39,7 +31,7 @@ const cldSrc = cld
 cldSrc.setDeliveryType("fetch");
 ---
 
-<Image src={cldSrc.toURL()} width={width} height={height} alt={alt} />
+<Image src={cldSrc.toURL()} alt={alt} width={width} height={height} />
 
 <style>
   img {

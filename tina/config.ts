@@ -30,7 +30,10 @@ export default defineConfig({
           filename: {
             readonly: true,
             slugify: (values) => {
-              return `${values?.title?.toLowerCase().replace(/ /g, "-")}`;
+              return `${values?.title
+                ?.toLowerCase()
+                .replace(/[\/:*?"<>|]/g, "")
+                .replace(/ /g, "-")}`;
             },
           },
         },
@@ -48,6 +51,12 @@ export default defineConfig({
             type: "image",
             name: "image",
             label: "Image",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "alt",
+            label: "Alt Tag (A descriptive description for the image)",
             required: true,
           },
           {
@@ -109,6 +118,12 @@ export default defineConfig({
             type: "image",
             name: "image",
             label: "Image",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "alt",
+            label: "Alt Tag (A descriptive decription for the image)",
             required: true,
           },
           {
